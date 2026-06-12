@@ -1,0 +1,6 @@
+{
+  "name": "Ruthvik Goud Portfolio",
+  "description": "Interactive AI & Hardware engineering workbench and professional portfolio of Ruthvik Goud.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
