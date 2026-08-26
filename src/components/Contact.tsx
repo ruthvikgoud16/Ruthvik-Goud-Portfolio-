@@ -1,295 +1,120 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Github, Linkedin, Instagram, Send, CheckCircle2, ShieldAlert, Terminal, MessageSquare, Phone } from 'lucide-react';
+import { useState, type FormEvent } from 'react';
 import { PERSONAL_DETAILS } from '../data/portfolioData';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [statusMsg, setStatusMsg] = useState<string | null>(null);
-  const [isSuccess, setIsSuccess] = useState<boolean | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
+  const [ok, setOk] = useState<boolean | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setStatusMsg('Please populate all required telemetry arrays (Name, Email, Message).');
-      setIsSuccess(false);
+      setStatus('Please fill in name, email, and message.');
+      setOk(false);
       return;
     }
-
-    setIsLoading(true);
-    setStatusMsg(null);
-    setIsSuccess(null);
-
+    setLoading(true);
+    setStatus(null);
     try {
-      // Post directly to our server.ts backend endpoint for real-time contact storage!
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
-
       const data = await res.json();
       if (res.ok && data.status === 'ok') {
-        setStatusMsg('SIGNAL ENCODED SUCCESSFULLY: Message logged to Ruthvik Goud\'s terminal backend.');
-        setIsSuccess(true);
+        setStatus('Received. I’ll get back to you.');
+        setOk(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        setStatusMsg(`FAIL: ${data.message || 'System failed to register client transmission.'}`);
-        setIsSuccess(false);
+        setStatus('Could not send — email me directly.');
+        setOk(false);
       }
-    } catch (err: any) {
-      console.error(err);
-      setStatusMsg('IO_ERROR: Failed to establish duplex link to terminal backend.');
-      setIsSuccess(false);
+    } catch {
+      setStatus('Could not send — email me directly.');
+      setOk(false);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className="relative bg-[#09090c] py-24 px-6 md:px-12">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(6,182,212,0.015),transparent_65%)]" />
-
-      <div className="container mx-auto max-w-5xl relative z-10">
-        
-        {/* Title */}
-        <div className="mb-16 text-center">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/20 bg-cyan-950/40 px-3 py-1 text-xs font-semibold text-cyan-400 font-mono mb-4">
-            <MessageSquare className="h-3.5 w-3.5" />
-            <span>DUPLEX COMMUNICATIONS</span>
-          </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-display">
-            Contact
-          </h2>
-          <div className="mx-auto mt-2 h-1 w-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
+    <section id="contact" className="mt-24">
+      <div className="overflow-hidden border-y border-white/10 py-4">
+        <div className="marquee-track gap-10 font-display text-5xl font-semibold tracking-tight md:text-7xl">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <span key={i} className="flex items-center gap-10 whitespace-nowrap px-4">
+              Let’s connect <span className="text-lg">C</span>
+            </span>
+          ))}
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 items-start">
-          
-          {/* Left panel: Direct lines (Columns 1-5) */}
-          <div className="lg:col-span-5 space-y-6">
-            <h3 className="text-lg font-bold text-neutral-200 uppercase font-mono tracking-wider">
-              Communication Nodes
-            </h3>
-            <p className="text-xs text-neutral-400 leading-relaxed font-sans mb-8">
-              Send a secure telemetry ping via the integrated contact console. You can also establish channels directly through any of the active developer nodes below.
-            </p>
+      <div className="px-5 py-20 md:px-10">
+        <p className="text-xs uppercase tracking-[0.2em] text-[#f3efe6]/40">Ruthvik (.16)</p>
+        <h2 className="mt-6 max-w-4xl font-display text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
+          Have something in mind? Let’s build it together.
+        </h2>
+        <a
+          href={`mailto:${PERSONAL_DETAILS.email}`}
+          className="mt-8 inline-block border border-white px-6 py-3 text-xs uppercase tracking-[0.18em]"
+        >
+          Start the project
+        </a>
 
-            <div className="grid grid-cols-1 gap-4">
-              {/* Mail */}
-              <a
-                id="contact-node-mail"
-                href={`mailto:${PERSONAL_DETAILS.email}`}
-                className="flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 transition-all hover:border-cyan-500/30 hover:bg-[#0c0c14]"
-              >
-                <div className="rounded-lg bg-cyan-950 border border-cyan-500/25 p-2.5 text-cyan-400">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-[9px] font-mono font-medium text-neutral-500 uppercase tracking-widest">// Direct Email</div>
-                  <div className="text-sm font-bold text-neutral-200 font-mono mt-0.5 truncate">{PERSONAL_DETAILS.email}</div>
-                </div>
-              </a>
-
-              <a
-                id="contact-node-phone"
-                href={`tel:${PERSONAL_DETAILS.phone.replace(/\s/g, '')}`}
-                className="flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 transition-all hover:border-cyan-500/30 hover:bg-[#0c0c14]"
-              >
-                <div className="rounded-lg bg-emerald-950 border border-emerald-500/25 p-2.5 text-emerald-400">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-[9px] font-mono font-medium text-neutral-500 uppercase tracking-widest">// Phone</div>
-                  <div className="text-sm font-bold text-neutral-200 font-mono mt-0.5">{PERSONAL_DETAILS.phone}</div>
-                </div>
-              </a>
-
-              {/* LinkedIn */}
-              <a
-                id="contact-node-linkedin"
-                href={PERSONAL_DETAILS.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 transition-all hover:border-cyan-500/30 hover:bg-[#0c0c14]"
-              >
-                <div className="rounded-lg bg-blue-950 border border-blue-500/25 p-2.5 text-blue-400">
-                  <Linkedin className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-[9px] font-mono font-medium text-neutral-500 uppercase tracking-widest">// professional directory</div>
-                  <div className="text-sm font-bold text-neutral-200 font-mono mt-0.5">
-                    linkedin.com/in/{PERSONAL_DETAILS.linkedinHandle}
-                  </div>
-                </div>
-              </a>
-
-              {/* GitHub */}
-              <a
-                id="contact-node-github"
-                href={PERSONAL_DETAILS.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 transition-all hover:border-cyan-500/30 hover:bg-[#0c0c14]"
-              >
-                <div className="rounded-lg bg-neutral-950 border border-neutral-800 p-2.5 text-white">
-                  <Github className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-[9px] font-mono font-medium text-neutral-500 uppercase tracking-widest">// SOURCE MODULES</div>
-                  <div className="text-sm font-bold text-neutral-200 font-mono mt-0.5">ruthvikgoud16</div>
-                </div>
-              </a>
-
-              {/* Instagram */}
-              <a
-                id="contact-node-instagram"
-                href={PERSONAL_DETAILS.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 transition-all hover:border-cyan-500/30 hover:bg-[#0c0c14]"
-              >
-                <div className="rounded-lg bg-purple-950 border border-purple-500/25 p-2.5 text-purple-400">
-                  <Instagram className="h-5 w-5" />
-                </div>
-                <div>
-                  <div className="text-[9px] font-mono font-medium text-neutral-500 uppercase tracking-widest">// social uplink</div>
-                  <div className="text-sm font-bold text-neutral-200 font-mono mt-0.5">ruthviikk._</div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* Right panel: Contact Form Console (Columns 6-12) */}
-          <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-neutral-800 bg-[#0a0a0e] p-6 md:p-8">
-              <div className="mb-6 flex items-center justify-between border-b border-neutral-900 pb-3">
-                <div className="flex items-center gap-2">
-                  <Terminal className="h-4.5 w-4.5 text-cyan-400" />
-                  <span className="font-mono text-xs font-semibold text-neutral-300">Message</span>
-                </div>
-                <span className="font-mono text-[9px] text-neutral-600">INPUT PROTOCOL v1.0</span>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Name / Email split row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-mono text-[10px] text-neutral-500 uppercase font-bold mb-1.5">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full rounded-lg border border-neutral-800 bg-neutral-950 p-3 font-mono text-xs text-white outline-none focus:border-cyan-500/40 hover:border-neutral-700 transition"
-                      placeholder="e.g. John Doe"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-mono text-[10px] text-neutral-500 uppercase font-bold mb-1.5">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full rounded-lg border border-neutral-800 bg-neutral-950 p-3 font-mono text-xs text-white outline-none focus:border-cyan-500/40 hover:border-neutral-700 transition"
-                      placeholder="e.g. pilot@agency.com"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    />
-                  </div>
-                </div>
-
-                {/* Subject */}
-                <div>
-                  <label className="block font-mono text-[10px] text-neutral-500 uppercase font-bold mb-1.5">
-                    Uplink Subject
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full rounded-lg border border-neutral-800 bg-neutral-950 p-3 font-mono text-xs text-white outline-none focus:border-cyan-500/40 hover:border-neutral-700 transition"
-                    placeholder="e.g. Systems integration query"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  />
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label className="block font-mono text-[10px] text-neutral-500 uppercase font-bold mb-1.5">
-                    Signal Body Payload *
-                  </label>
-                  <textarea
-                    rows={4}
-                    className="w-full rounded-lg border border-neutral-800 bg-neutral-950 p-3 font-mono text-xs text-white outline-none focus:border-cyan-500/40 hover:border-neutral-700 transition"
-                    placeholder="Encode text message payload here..."
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  />
-                </div>
-
-                {/* Submit button bar */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-3">
-                  <div className="flex-1">
-                    <AnimatePresence mode="wait">
-                      {statusMsg && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 5 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -5 }}
-                          className={`flex items-start gap-2.5 rounded-lg p-3 text-[11px] font-mono leading-tight ${
-                            isSuccess
-                              ? 'bg-emerald-950/40 border border-emerald-500/30 text-emerald-400'
-                              : 'bg-red-950/40 border border-red-500/30 text-red-400'
-                          }`}
-                        >
-                          {isSuccess ? <CheckCircle2 className="h-4 w-4 shrink-0" /> : <ShieldAlert className="h-4 w-4 shrink-0" />}
-                          <span>{statusMsg}</span>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  <button
-                    id="contact-btn-submit"
-                    type="submit"
-                    disabled={isLoading}
-                    className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-mono text-xs font-bold text-white shadow-lg shadow-cyan-500/15 hover:scale-[1.02] active:scale-95 disabled:opacity-50 transition"
-                  >
-                    <span>{isLoading ? 'Sending...' : 'Send message'}</span>
-                    <Send className="h-3.5 w-3.5" />
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Humble system credits footer */}
-        <div className="mt-20 border-t border-neutral-900 pt-8 text-center text-neutral-500 font-mono text-[10px] space-y-3">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
-            <a href={PERSONAL_DETAILS.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">
+        <div className="mt-16 grid gap-12 md:grid-cols-2">
+          <div className="space-y-3 text-sm">
+            <p>Hyderabad, India</p>
+            <p className="text-[#f3efe6]/40">Working globally</p>
+            <a className="block underline underline-offset-4" href={`mailto:${PERSONAL_DETAILS.email}`}>
+              {PERSONAL_DETAILS.email}
+            </a>
+            <a className="block underline underline-offset-4" href={PERSONAL_DETAILS.linkedin} target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
-            <a href={PERSONAL_DETAILS.github} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">
+            <a className="block underline underline-offset-4" href={PERSONAL_DETAILS.github} target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
-            <a href={PERSONAL_DETAILS.resumeUrl} download="Ruthvik_Goud_Resume.pdf" className="hover:text-cyan-400">
+            <a className="block underline underline-offset-4" href={PERSONAL_DETAILS.resumeUrl} download="Ruthvik_Goud_Resume.pdf">
               Resume
             </a>
-            <a href={`mailto:${PERSONAL_DETAILS.email}`} className="hover:text-cyan-400">
-              Email
-            </a>
           </div>
-          <div>Ruthvik Goud · Anurag University · Nimblize intern</div>
-          <div className="text-neutral-600">React · TypeScript · Tailwind</div>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              placeholder="Name"
+              className="w-full border-b border-white/20 bg-transparent py-3 text-sm outline-none"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full border-b border-white/20 bg-transparent py-3 text-sm outline-none"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+            />
+            <textarea
+              placeholder="Message"
+              rows={4}
+              className="w-full border-b border-white/20 bg-transparent py-3 text-sm outline-none"
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              required
+            />
+            {status && <p className={`text-sm ${ok ? 'text-white' : 'text-[#f3efe6]/50'}`}>{status}</p>}
+            <button type="submit" disabled={loading} className="text-xs uppercase tracking-[0.18em] underline underline-offset-4">
+              {loading ? 'Sending' : 'Send'}
+            </button>
+          </form>
         </div>
 
+        <div className="mt-20 flex flex-wrap items-end justify-between gap-4 border-t border-white/10 pt-8 text-xs text-[#f3efe6]/35">
+          <p>©2026 Ruthvik Goud. All rights reserved.</p>
+          <p>Portfolio@26</p>
+        </div>
       </div>
     </section>
   );
