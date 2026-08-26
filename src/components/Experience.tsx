@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
-import { Award, Compass, Sparkles, BookOpen, Clock, AlertTriangle, Cpu, Radio, ShieldCheck } from 'lucide-react';
-import { EXPERIENCES_DATA } from '../data/portfolioData';
+import { Award, Compass, Sparkles, BookOpen, Cpu, ShieldCheck, Linkedin } from 'lucide-react';
+import { EXPERIENCES_DATA, PERSONAL_DETAILS } from '../data/portfolioData';
 import NextSectionButton from './NextSectionButton';
 
 export default function Experience() {
@@ -16,9 +16,12 @@ export default function Experience() {
             <Compass className="h-3.5 w-3.5" />
             <span>TIMELINE MAP</span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-mono">
-            JOURNEY LOGS & PROTOCOLS
+          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-display">
+            Experience
           </h2>
+          <p className="mx-auto mt-3 max-w-lg text-sm text-neutral-400">
+            Nimblize first — AI & Automation internship — then Bluestock, ambassador work, and Anurag University.
+          </p>
           <div className="mx-auto mt-2 h-1 w-20 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full" />
         </div>
 
@@ -39,28 +42,28 @@ export default function Experience() {
               }
             };
 
-            const isTrophy = exp.iconType === 'trophy';
+            const isFeatured = exp.featured === true;
 
             return (
               <div key={exp.id} className="relative pl-8 md:pl-12 group">
                 
-                {/* Visual marker node point */}
                 <div className={`absolute left-0 -translate-x-1/2 flex h-10 w-10 items-center justify-center rounded-xl border bg-[#0a0a0f] transition-all duration-300 group-hover:scale-110 ${
-                  isTrophy ? 'border-emerald-500 scale-102 shadow-lg shadow-emerald-950/40' : 'border-neutral-800 group-hover:border-neutral-500'
+                  isFeatured ? 'border-cyan-500 scale-102 shadow-lg shadow-cyan-950/40' : 'border-neutral-800 group-hover:border-neutral-500'
                 }`}>
                   {getIcon()}
                 </div>
 
-                {/* Card Bubble content */}
                 <div className={`rounded-xl border p-6 transition-all duration-200 ${
-                  isTrophy 
-                    ? 'border-emerald-500/30 bg-emerald-950/5 hover:border-emerald-500/50' 
+                  isFeatured 
+                    ? 'border-cyan-500/35 bg-cyan-950/10 hover:border-cyan-500/55' 
                     : 'border-neutral-800/80 bg-neutral-900/40 hover:border-neutral-700 hover:bg-neutral-900/60'
                 }`}>
                   {/* Metadata Row */}
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-neutral-800/60 pb-3 mb-4">
                     <div>
-                      <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">// STATION::{idx + 1}</span>
+                      <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest">
+                        {isFeatured ? '// PRIMARY ROLE' : `// STATION::${idx + 1}`}
+                      </span>
                       <h3 className="text-lg font-bold text-white font-mono mt-0.5 leading-snug">
                         {exp.title}
                       </h3>
@@ -83,7 +86,7 @@ export default function Experience() {
                   <div className="rounded-lg bg-neutral-950/80 border border-neutral-800/60 p-3.5 mb-4">
                     <div className="font-mono text-[9px] text-neutral-500 uppercase tracking-wider font-bold mb-1 flex items-center gap-1">
                       <Sparkles className="h-3 w-3 text-emerald-400" />
-                      <span>MISSION OUTCOME:</span>
+                      <span>OUTCOME</span>
                     </div>
                     <div className="text-xs text-neutral-200 font-sans">
                       {exp.achievement}
@@ -101,6 +104,17 @@ export default function Experience() {
                       </span>
                     ))}
                   </div>
+                  {isFeatured && (
+                    <a
+                      href={PERSONAL_DETAILS.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-cyan-400 hover:text-white"
+                    >
+                      <Linkedin className="h-3.5 w-3.5" />
+                      linkedin.com/in/{PERSONAL_DETAILS.linkedinHandle}
+                    </a>
+                  )}
                 </div>
 
               </div>

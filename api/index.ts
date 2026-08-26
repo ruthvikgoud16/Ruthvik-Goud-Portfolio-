@@ -78,24 +78,23 @@ Ruthvik Goud Dossier details:
 - EMAIL: bathiniruthvik380@gmail.com
 - LINKEDIN: https://linkedin.com/in/ruthvikgoud16
 - GITHUB: https://github.com/ruthvikgoud16
-- EDUCATION: First Year - First Semester ECE student at Sreenidhi Institute of Science and Technology (SNIST), Hyderabad. Graduation expected 2029. Study areas: Basic Electronics, Problem Solving Techniques, Engineering Mathematics, Communication Skills, Programming Fundamentals, Digital Fundamentals (Basics).
-- WORK: Customer Support Associate - Google Process at Concentrix (Present). Assisting clients with search / product queries, maintaining top CRM customer-satisfaction ratings.
-- AWARDS & MAJORS:
-  1) 1st Place Overall out of 100+ entries at HackPrix Season 2 (2025) with "CrisisOS Command", a disaster response multi-agent command system.
-  2) Active Developer at India.Runs (2026) with "Redrob Truth Engine" (AI Verification Platform with team Future AI Builders).
-  3) Co-developing AutoOps Enterprise Agent (NVIDIA Open Hackathons 2026 with team AgentForge), designing planner/supervisor orchestration using NVIDIA NIM.
-  4) Built ESP32 Drone Hover board with gyro PID self-leveling loops in C++ at Coimbatore (Makers Arena 2.0, 2026) alongside Coimbatore engineering specialists.
-  5) Selected delegate for Microsoft Build and Google I/O Extended 2026 across major cities.
-  6) Built Arduino-based Smart Distance Sensor (Ultrasonic distance warnings HF buzzer) and GPS Wearable Safety Bracelet.
-- SKILLS: Python (Beginner/Intermediate), C Programming (Beginner), HTML & CSS developer, front-end development, CRM, customer support tools, Google Workspace, git, VS Code. Currently studying AI fundamentals, Data Analytics, embedded sensor basics, etc.
-- FUTURE ROADMAP (FUTURE_INSIGHTS):
-  - Advanced Agent Memory: Stateful long-term RAG recall using graph network indices is expected in Q4 2026.
-  - Self-Healing Workflows: Automatic diagnostics and hot-fixing of pipeline bugs expected in Q1 2027.
-  - Adaptive Learning: Reinforcement visual tuning on local interfaces expected in Q2 2027.
-  - Enterprise Marketplace: Abstraction gates to connect AutoOps into HubSpot, Salesforce, etc., expected in Q3 2027.
-  - Secure Compliance Guardrails: Semantic PII protection in real-time, expected in Q4 2026.
+- EDUCATION: First Year ECE student at Anurag University, Hyderabad. B.Tech 2026-2030.
+- PRIMARY WORK: AI Engineering Intern at Nimblize (May 2026 – Present). Builds multi-agent product intelligence: FastAPI, LangGraph, PostgreSQL, Redis, Gemini, RAG, vector embeddings. This is his most important professional role.
+- SECONDARY WORK: Data Analyst Intern at Bluestock Fintech (Present). SQL reports, dashboards, data cleaning and validation.
+- LEADERSHIP: OnePlus Student Ambassador (selected among ~100 nationwide); Unstop Campus Champion.
+- PHONE: +91 9392796458
+- FLAGSHIP PROJECTS:
+  1) Pramāṇa — evidence-gated enterprise multi-agent system. Authorization before retrieval. Privacy Gate → Auth → Hybrid GraphRAG → Draft → Verify → FactCheck → Govern. Refuses when evidence is insufficient.
+  2) Nimblize platform — internship product (same stack as the intern role).
+  3) ResilienceGraph — infrastructure ontology for cascading failures.
+  4) AutoOps — multi-agent enterprise automation (LangGraph, NVIDIA NIM).
+  5) TalentLens X — weighted candidate ranking (Career 35%, Recruitability 25%, Skills 25%, Semantic 15%).
+  6) Aero Dot — ESP32 drone with ToF sensing and PID control.
+  7) Nafithah, PortPulse, Carbon Intelligence suite, Arduino distance sensor, safety bracelet concept.
+- SKILLS: LangGraph, GraphRAG, Python, React/TypeScript, FastAPI, Redis, Docker, Power BI, AWS fundamentals, C/embedded basics.
+- NEVER mention Concentrix, Google Process, SNIST/Sreenidhi, CrisisOS, or hackathon wins. Do not invent awards.
 
-Answer concisely (within 2-3 sentences if possible). If asked questions that are completely unrelated to Ruthvik or ECE/AI, politely steer back to Ruthvik's qualifications, skills, or portfolio insights.`
+Answer concisely (within 2-3 sentences if possible). If asked questions that are completely unrelated to Ruthvik or ECE/AI, politely steer back to his qualifications, skills, or portfolio insights.`
       }
     });
 
@@ -106,7 +105,7 @@ Answer concisely (within 2-3 sentences if possible). If asked questions that are
   } catch (e: any) {
     console.error("Vercel Chat API Offline/Error:", e);
     res.json({
-      reply: `Telemetry connection signal interrupted. But let me retrieve from Ruthvik's local cache: he is an ECE scholar at SNIST and Google Process agent at Concentrix. Ask me about his SNIST courses or Concentrix values!`,
+      reply: `Telemetry interrupted. Local cache: Ruthvik is an ECE student at Anurag University and AI & Automation Intern at Nimblize. LinkedIn: linkedin.com/in/ruthvikgoud16. Ask about Pramāṇa or his Nimblize internship.`,
       status: "complete"
     });
   }

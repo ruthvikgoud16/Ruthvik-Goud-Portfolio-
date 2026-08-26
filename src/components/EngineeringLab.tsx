@@ -19,7 +19,7 @@ import { LabDevice } from '../types';
 import NextSectionButton from './NextSectionButton';
 
 export default function EngineeringLab() {
-  const [activeDeviceId, setActiveDeviceId] = useState<string>('neural-processor');
+  const [activeDeviceId, setActiveDeviceId] = useState<string>('pramana-core');
   const [isHoveredId, setIsHoveredId] = useState<string | null>(null);
   const [uptimeSeconds, setUptimeSeconds] = useState(1);
   const [terminalLines, setTerminalLines] = useState<string[]>([
@@ -102,11 +102,11 @@ export default function EngineeringLab() {
             <Shield className="h-3.5 w-3.5" />
             <span>INTERACTIVE HARDWARE HUB</span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-mono">
-            RUTHVIK'S ENGINEERING LAB
+          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-display">
+            Engineering Lab
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-neutral-400">
-            A real-time command center modeling the intersection of Electrical & Electronics Engineering with Advanced Generative AI architectures. Click any motherboard module to query structural logs.
+            Hardware-software command surface: Pramāṇa governance, Nimblize intern stack, Aero Dot avionics. Click a module for diagnostics.
           </p>
         </div>
 
@@ -144,11 +144,10 @@ export default function EngineeringLab() {
               </div>
             </div>
 
-            {/* Stat: Hackathons */}
             <div className="border-r border-neutral-800/80 px-2">
-              <div className="text-[10px] uppercase tracking-wider text-neutral-500 font-mono">Hackathons</div>
+              <div className="text-[10px] uppercase tracking-wider text-neutral-500 font-mono">Internships</div>
               <div className="font-mono text-sm font-bold text-neutral-200 mt-1">
-                {MISSION_STATS.hackathonsCount}
+                {MISSION_STATS.internshipsCount}
               </div>
             </div>
 

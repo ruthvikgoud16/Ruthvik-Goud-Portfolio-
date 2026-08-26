@@ -33,7 +33,7 @@ export default function AICompanionChatbot({ activeSection }: AICompanionChatbot
     {
       id: 'welcome',
       sender: 'assistant',
-      text: "System Online. Greetings! I am Ruthvik's AI Companion. I track your viewport nodes and can explain his research in ECE, Generative AI projects, Concentrix role, or future roadmap goals. How can I assist your transmission?",
+      text: "Online. I am Ruthvik's companion. He is an ECE student at Anurag University and AI & Automation Intern at Nimblize. I can walk through Pramāṇa, the Nimblize stack, Bluestock, OnePlus ambassador work, or LinkedIn. What do you want?",
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -48,21 +48,23 @@ export default function AICompanionChatbot({ activeSection }: AICompanionChatbot
   const getSectionNarrative = (section: string): string => {
     switch (section) {
       case 'hero':
-        return "You are reading Ruthvik's Terminal Front. He is an ECE scholar at SNIST, Hyderabad, pursuing deep studies in electronics and working as a Customer Support Associate for the Google Process at Concentrix! Ask me about his resume statistics.";
+        return "Hero node: Ruthvik Goud — ECE at Anurag University, AI & Automation Intern at Nimblize. LinkedIn: linkedin.com/in/ruthvikgoud16. Ask about internships or Pramāṇa.";
       case 'about':
-        return "In this Brief, you can review Ruthvik's full biographical data. He bridges digital circuits and software systems, mastering C, Python, and frontend formats. Ask me about his languages or SNIST first-semester study areas.";
+        return "Brief: first-year ECE at Anurag University. Builder across multi-agent AI, GraphRAG, and embedded IoT. Ask about languages or first-semester study areas.";
       case 'engineering-lab':
-        return "The interactive PCB Engineering Lab lets you inspect system architectures! Click on the chips on-board, like the TalentLens AI processor chip, the ESP32 Drone Hover board, or the SNIST Arduino sensor workbench.";
+        return "Lab board: Pramāṇa governance core, Nimblize intern terminal, Aero Dot flight controller, Arduino node, API/vector rack. Click a chip.";
       case 'skills':
-        return "Reviewing Core Competency Matrices. Ruthvik's development stack spans Python, C, HTML/CSS, Git, and premium Google tools. Ask me what areas he is currently learning, like Embedded Systems basics and Data Analytics!";
+        return "Skills: LangGraph, GraphRAG, Python, FastAPI, Redis, Docker, Power BI, AWS fundamentals, embedded C. Ask what he is learning next.";
       case 'projects':
-        return "Exploring Systems Run. We have parsed multiple active projects. Check the auto-agent dashboard, NVIDIA-featured AutoOps, India.Runs Winner Redrob Truth Engine, or CrisisOS (1st Place HackPrix Season 2). Ask for project specs!";
+        return "Featured: Pramāṇa (evidence-gated GraphRAG) and Nimblize (internship product). Also ResilienceGraph, AutoOps, TalentLens X, Aero Dot.";
+      case 'leadership':
+        return "Leadership: OnePlus Student Ambassador and Unstop Campus Champion — organizer path, not trophy path.";
       case 'experience':
-        return "Checking Chronicle Logs. This captures Ruthvik's professional support role at Concentrix, major Hackathon wins, ETH India, and selection as an invited delegate for Microsoft Build and Google I/O Extended events across India.";
+        return "Timeline leads with Nimblize AI Engineering Intern (primary), then Bluestock Fintech Data Analyst Intern, then ambassador and education. LinkedIn is on the Nimblize card.";
       case 'future-insights':
-        return "Investigating Future Roadmaps. Ruthvik's research vectors trace Advanced Agent Memory, Self-Healing recovery, PII protect guardrails, and cybernetic PCB designs. Ask for deep architectural descriptions of these!";
+        return "Roadmap: agent memory, self-healing workflows, adaptive agents, marketplace gates, Pramāṇa-style compliance.";
       case 'contact':
-        return "Establish Secure Link. Here you can write directly to Ruthvik's secure inbox or fetch his LinkedIn and GitHub links. I can provide copyable credentials if requested!";
+        return "Contact: email bathiniruthvik380@gmail.com or LinkedIn linkedin.com/in/ruthvikgoud16. Form posts to the site API.";
       default:
         return "I am companion routing online. Scroll down further to review his work, and I will stream situational telemetries automatically.";
     }
@@ -133,18 +135,22 @@ export default function AICompanionChatbot({ activeSection }: AICompanionChatbot
       let fallbackText = "Telemetry signal received, but direct server connection is pending. Here is corresponding dossier info: ";
       const cleanPrompt = textToSend.toLowerCase();
       
-      if (cleanPrompt.includes('snist') || cleanPrompt.includes('education') || cleanPrompt.includes('college')) {
-        fallbackText += "Ruthvik is pursuing B.Tech in Electronics and Communication Engineering (ECE) at Sreenidhi Institute of Science and Technology (SNIST), Hyderabad. His relevant study areas include Basic Electronics, Engineering Math, Programming, and Digital Fundamentals.";
-      } else if (cleanPrompt.includes('concentrix') || cleanPrompt.includes('work') || cleanPrompt.includes('job') || cleanPrompt.includes('google')) {
-        fallbackText += "Ruthvik currently works as a Customer Support Associate inside the Google Process at Concentrix. He maintains high-quality service metrics, assists customers with inquiries, and coordinates solutions in a performance-driven framework.";
-      } else if (cleanPrompt.includes('project') || cleanPrompt.includes('hackathon')) {
-        fallbackText += "His major systems are: 1) CrisisOS Command (1st Place HackPrix S2 winner - disaster response dispatcher), 2) AutoOps (NVIDIA open hackathons - LangGraph multi-agent), and 3) Redrob Truth Engine (India.Runs Track Champion - candidate verification system).";
-      } else if (cleanPrompt.includes('skills') || cleanPrompt.includes('c_prog') || cleanPrompt.includes('python')) {
-        fallbackText += "Ruthvik's skills are divided as: Developer Programming (Python, C, HTML/CSS, JS), Tools (Git/GitHub, MS Office, Google Workspace), and current learnings (AI fundamentals, Data Analytics, Circuit designs, and Embedded sensors).";
-      } else if (cleanPrompt.includes('future') || cleanPrompt.includes('ideas') || cleanPrompt.includes('roadmap')) {
-        fallbackText += "His future research blueprints cover: Advanced Agent Memory, Self-Healing automatic code diagnostics, Reinforcement Policy systems, and compliance privacy guardrails to protect customer schemas.";
+      if (cleanPrompt.includes('anurag') || cleanPrompt.includes('education') || cleanPrompt.includes('college')) {
+        fallbackText += "Ruthvik is pursuing B.Tech ECE at Anurag University, Hyderabad (2026-2030).";
+      } else if (cleanPrompt.includes('nimblize') || cleanPrompt.includes('intern') || cleanPrompt.includes('work') || cleanPrompt.includes('job')) {
+        fallbackText += "Primary role: AI Engineering Intern at Nimblize — FastAPI, LangGraph, PostgreSQL, Redis, Gemini, RAG. Also Data Analyst Intern at Bluestock Fintech. LinkedIn: linkedin.com/in/ruthvikgoud16.";
+      } else if (cleanPrompt.includes('pramana') || cleanPrompt.includes('pramāṇa') || cleanPrompt.includes('project')) {
+        fallbackText += "Flagship: Pramāṇa (evidence-gated GraphRAG; refuses without evidence) and the Nimblize internship platform. Also ResilienceGraph, AutoOps, TalentLens X, Aero Dot.";
+      } else if (cleanPrompt.includes('linkedin')) {
+        fallbackText += "https://linkedin.com/in/ruthvikgoud16";
+      } else if (cleanPrompt.includes('skills') || cleanPrompt.includes('python')) {
+        fallbackText += "LangGraph, GraphRAG, Python, React/TypeScript, FastAPI, Redis, Docker, Power BI, AWS fundamentals, embedded C.";
+      } else if (cleanPrompt.includes('future') || cleanPrompt.includes('roadmap')) {
+        fallbackText += "Roadmap: agent memory, self-healing workflows, adaptive agents, marketplace integrations, and Pramāṇa-style compliance guardrails.";
+      } else if (cleanPrompt.includes('oneplus') || cleanPrompt.includes('ambassador') || cleanPrompt.includes('leadership')) {
+        fallbackText += "OnePlus Student Ambassador (selected among ~100 nationwide) and Unstop Campus Champion.";
       } else {
-        fallbackText += `Regarding "${textToSend}": Let me check my sensors. Ruthvik is an ECE engineer at SNIST and a Google process support associate at Concentrix. He works on autonomous AI, IoT, and dashboard layouts. Send a direct request inside our main contact form to meet him!`;
+        fallbackText += `Ruthvik is an ECE student at Anurag University and AI & Automation Intern at Nimblize. LinkedIn: linkedin.com/in/ruthvikgoud16. Use the contact form to reach him.`;
       }
 
       const assistantMsg: Message = {
@@ -399,25 +405,25 @@ export default function AICompanionChatbot({ activeSection }: AICompanionChatbot
             {/* Quick suggested core questions row */}
             <div className="px-3 pb-2 flex gap-1.5 overflow-x-auto shrink-0 select-none scrollbar-none">
               <button
-                id="chatbot-suggest-snist"
-                onClick={() => triggerQuickPrompt("Tell me about your college studies at SNIST Hyderabad and your B.Tech courses.")}
+                id="chatbot-suggest-nimblize"
+                onClick={() => triggerQuickPrompt("Tell me about your AI and Automation internship at Nimblize.")}
                 className="whitespace-nowrap px-2.5 py-1 rounded bg-[#09090e] border border-neutral-800 text-[9px] font-mono font-bold text-neutral-400 hover:text-white hover:border-cyan-500/40 transition-colors cursor-pointer"
               >
-                SNIST Courses?
+                Nimblize intern?
               </button>
               <button
-                id="chatbot-suggest-concentrix"
-                onClick={() => triggerQuickPrompt("What are your duties and achievements as Google Process Associate at Concentrix?")}
+                id="chatbot-suggest-pramana"
+                onClick={() => triggerQuickPrompt("Explain Pramāṇa and evidence-gated retrieval.")}
                 className="whitespace-nowrap px-2.5 py-1 rounded bg-[#09090e] border border-neutral-800 text-[9px] font-mono font-bold text-neutral-400 hover:text-white hover:border-cyan-500/40 transition-colors cursor-pointer"
               >
-                Concentrix Role?
+                Pramāṇa?
               </button>
               <button
-                id="chatbot-suggest-hackprix"
-                onClick={() => triggerQuickPrompt("Explain CrisisOS and your HackPrix victory.")}
+                id="chatbot-suggest-linkedin"
+                onClick={() => triggerQuickPrompt("What is Ruthvik's LinkedIn?")}
                 className="whitespace-nowrap px-2.5 py-1 rounded bg-[#09090e] border border-neutral-800 text-[9px] font-mono font-bold text-neutral-400 hover:text-white hover:border-cyan-500/40 transition-colors cursor-pointer"
               >
-                HackPrix S2?
+                LinkedIn?
               </button>
             </div>
 

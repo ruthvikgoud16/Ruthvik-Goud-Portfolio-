@@ -3,7 +3,19 @@
 
 let audioCtx: AudioContext | null = null;
 
+function isAudioMuted(): boolean {
+  if (typeof window === 'undefined') return true;
+  try {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
+    if (window.innerWidth < 768) return true;
+  } catch {
+    return false;
+  }
+  return false;
+}
+
 function getAudioContext(): AudioContext | null {
+  if (isAudioMuted()) return null;
   if (typeof window === 'undefined') return null;
   if (!audioCtx) {
     // Initialize Web Audio Context

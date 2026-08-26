@@ -1,47 +1,61 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import {
-  Menu,
-  X,
-  Compass,
-  Cpu,
-  Bookmark,
-  Code2,
-  GitBranch,
-  Smartphone,
-  Terminal,
-  Server
-} from 'lucide-react';
+import { Menu, X, Compass } from 'lucide-react';
 import { PERSONAL_DETAILS } from './data/portfolioData';
 
-// Component imports
 import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import About from './components/About';
 import EngineeringLab from './components/EngineeringLab';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Leadership from './components/Leadership';
 import Experience from './components/Experience';
 import FutureInsights from './components/FutureInsights';
 import Contact from './components/Contact';
 import BootSequence from './components/BootSequence';
 import AICompanionChatbot from './components/AICompanionChatbot';
 import { cyberAudio } from './utils/audioEffects';
-import { useRef } from 'react';
+
+const BOOT_SKIP_KEY = 'rg-portfolio-boot-skipped';
+
+const SECTIONS = [
+  'hero',
+  'about',
+  'engineering-lab',
+  'skills',
+  'projects',
+  'leadership',
+  'experience',
+  'future-insights',
+  'contact'
+];
+
+const NAV_LINKS = [
+  { id: 'about', label: 'Brief' },
+  { id: 'engineering-lab', label: 'Lab' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Work' },
+  { id: 'leadership', label: 'Leadership' },
+  { id: 'experience', label: 'Timeline' },
+  { id: 'future-insights', label: 'Roadmap' },
+  { id: 'contact', label: 'Contact' }
+];
 
 export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
-  const [isBooted, setIsBooted] = useState(false);
+  const [isBooted, setIsBooted] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem(BOOT_SKIP_KEY) === '1';
+  });
   const activeSectionRef = useRef('hero');
 
-  // Interactive scroll observer to change active section labels in the floating HUD header
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'engineering-lab', 'skills', 'projects', 'experience', 'future-insights', 'contact'];
       const scrollPos = window.scrollY + 200;
 
-      for (const section of sections) {
+      for (const section of SECTIONS) {
         const el = document.getElementById(section);
         if (el) {
           const top = el.offsetTop;
@@ -50,7 +64,6 @@ export default function App() {
             if (activeSectionRef.current !== section) {
               activeSectionRef.current = section;
               setActiveSection(section);
-              // Gently trigger scroll tick to give spatial representation
               cyberAudio.playDiagnosticTick();
             }
             break;
@@ -59,9 +72,14 @@ export default function App() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const completeBoot = () => {
+    localStorage.setItem(BOOT_SKIP_KEY, '1');
+    setIsBooted(true);
+  };
 
   const selectNodeLink = (id: string) => {
     setIsMobileMenuOpen(false);
@@ -82,7 +100,7 @@ export default function App() {
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.6 }}
           >
-            <BootSequence onComplete={() => setIsBooted(true)} />
+            <BootSequence onComplete={completeBoot} />
           </motion.div>
         ) : (
           <motion.div
@@ -92,14 +110,10 @@ export default function App() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="w-full"
           >
-            {/* 3D Custom Cursor physics trail element */}
             <CustomCursor />
 
-            {/* FLOATING HEADER DIRECTORY */}
             <header className="fixed top-0 left-0 right-0 z-40 border-b border-neutral-900 bg-[#08080b]/55 backdrop-blur-xl">
               <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-                
-                {/* Logo Brand */}
                 <button
                   id="nav-logo"
                   onClick={() => selectNodeLink('hero')}
@@ -110,21 +124,14 @@ export default function App() {
                   </div>
                   <div>
                     <span className="font-mono text-sm font-bold text-white tracking-tight">RUTHVIK.GOUD</span>
-                    <span className="block text-[8px] font-mono text-cyan-400 tracking-widest uppercase mt-0.5">ECE_CORE // SYS_CONNECTED</span>
+                    <span className="block text-[8px] font-mono text-cyan-400 tracking-widest uppercase mt-0.5">
+                      NIMBLIZE INTERN // ANURAG ECE
+                    </span>
                   </div>
                 </button>
 
-                {/* Desktop Nav Nodes */}
-                <nav className="hidden md:flex items-center gap-1 font-mono text-xs">
-                  {[
-                    { id: 'about', label: 'Brief' },
-                    { id: 'engineering-lab', label: 'Engineering_Lab' },
-                    { id: 'skills', label: 'Levels' },
-                    { id: 'projects', label: 'Systems_Run' },
-                    { id: 'experience', label: 'Logs' },
-                    { id: 'future-insights', label: 'Future_Specs' },
-                    { id: 'contact', label: 'Establish_Link' },
-                  ].map((link) => {
+                <nav className="hidden lg:flex items-center gap-0.5 font-mono text-[11px]">
+                  {NAV_LINKS.map((link) => {
                     const matches = activeSection === link.id;
                     return (
                       <button
@@ -132,7 +139,7 @@ export default function App() {
                         id={`nav-link-${link.id}`}
                         onClick={() => selectNodeLink(link.id)}
                         style={{ textShadow: matches ? '0 0 10px rgba(6,182,212,0.4)' : 'none' }}
-                        className={`px-3 py-1.5 rounded-lg transition-all font-semibold uppercase tracking-wider ${
+                        className={`px-2.5 py-1.5 rounded-lg transition-all font-semibold uppercase tracking-wider ${
                           matches
                             ? 'text-cyan-400 bg-neutral-900/60 border border-neutral-800'
                             : 'text-neutral-400 hover:text-white border border-transparent'
@@ -144,47 +151,51 @@ export default function App() {
                   })}
                 </nav>
 
-                {/* Connect Direct CTA Right */}
-                <div className="hidden md:block">
+                <div className="hidden md:flex items-center gap-2">
+                  <a
+                    href={PERSONAL_DETAILS.resumeUrl}
+                    download="Ruthvik_Goud_Resume.pdf"
+                    className="rounded-lg border border-neutral-800 px-3 py-1.5 font-mono text-[10px] font-extrabold uppercase tracking-widest text-neutral-300 hover:border-cyan-500/40 hover:text-cyan-400 transition-all"
+                  >
+                    Resume
+                  </a>
+                  <a
+                    href={PERSONAL_DETAILS.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-lg border border-neutral-800 px-3 py-1.5 font-mono text-[10px] font-extrabold uppercase tracking-widest text-neutral-300 hover:border-cyan-500/40 hover:text-cyan-400 transition-all"
+                  >
+                    LinkedIn
+                  </a>
                   <button
                     id="header-btn-direct"
                     onClick={() => selectNodeLink('contact')}
                     className="rounded-lg border border-cyan-500/30 bg-cyan-950/20 px-4 py-1.5 font-mono text-[10px] font-extrabold uppercase tracking-widest text-cyan-400 hover:bg-cyan-500 hover:text-black transition-all"
                   >
-                    transmit.io
+                    Contact
                   </button>
                 </div>
 
-                {/* Mobile Menu Actuator */}
                 <button
                   id="mobile-menu-trigger"
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                  className="rounded border border-neutral-800 p-1.5 text-neutral-400 md:hidden hover:border-neutral-500 hover:text-white"
+                  className="rounded border border-neutral-800 p-1.5 text-neutral-400 lg:hidden hover:border-neutral-500 hover:text-white"
                 >
                   {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                 </button>
               </div>
             </header>
 
-            {/* MOBILE POPUP COVER */}
             <AnimatePresence>
               {isMobileMenuOpen && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="fixed inset-x-0 top-[69px] z-30 border-b border-neutral-800 bg-[#08080b]/98 p-6 shadow-2xl backdrop-blur-2xl md:hidden"
+                  className="fixed inset-x-0 top-[69px] z-30 border-b border-neutral-800 bg-[#08080b]/98 p-6 shadow-2xl backdrop-blur-2xl lg:hidden"
                 >
                   <nav className="flex flex-col gap-3 font-mono text-sm">
-                    {[
-                      { id: 'about', label: 'Pilot Brief' },
-                      { id: 'engineering-lab', label: 'Ruthvik\'s Lab' },
-                      { id: 'skills', label: 'Skills Levels' },
-                      { id: 'projects', label: 'Systems Projects' },
-                      { id: 'experience', label: 'Chronicle History' },
-                      { id: 'future-insights', label: 'Future Roadmap' },
-                      { id: 'contact', label: 'Establish Link' },
-                    ].map((link) => (
+                    {NAV_LINKS.map((link) => (
                       <button
                         key={link.id}
                         id={`nav-mob-link-${link.id}`}
@@ -194,24 +205,38 @@ export default function App() {
                         {link.label}
                       </button>
                     ))}
+                    <a
+                      href={PERSONAL_DETAILS.resumeUrl}
+                      download="Ruthvik_Goud_Resume.pdf"
+                      className="w-full rounded border border-neutral-800 bg-neutral-950/60 py-3 px-4 text-left text-xs font-semibold text-neutral-300"
+                    >
+                      Download resume
+                    </a>
+                    <a
+                      href={PERSONAL_DETAILS.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full rounded border border-cyan-500/30 bg-cyan-950/20 py-3 px-4 text-left text-xs font-semibold text-cyan-400"
+                    >
+                      LinkedIn — {PERSONAL_DETAILS.linkedinHandle}
+                    </a>
                   </nav>
                 </motion.div>
               )}
             </AnimatePresence>
- 
-            {/* SYSTEM SECTIONS */}
+
             <main className="pt-1">
               <Hero />
               <About />
               <EngineeringLab />
               <Skills />
               <Projects />
+              <Leadership />
               <Experience />
               <FutureInsights />
               <Contact />
             </main>
 
-            {/* Holographic 3D AI companion chatbot */}
             <AICompanionChatbot activeSection={activeSection} />
           </motion.div>
         )}

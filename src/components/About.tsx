@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
-import { User, Mail, GraduationCap, Award, Compass, Zap, Target } from 'lucide-react';
+import { User, GraduationCap, Award, Compass, Zap, Target } from 'lucide-react';
 import { PERSONAL_DETAILS } from '../data/portfolioData';
 import NextSectionButton from './NextSectionButton';
 
@@ -53,8 +53,8 @@ export default function About() {
             <Compass className="h-3.5 w-3.5 animate-spin-slow" />
             <span>LEVEL 01: INTRO</span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl font-mono">
-            MISSION BRIEF & PILOT BIO
+          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-4xl font-display">
+            Brief
           </h2>
           <div className="mx-auto mt-2 h-1 w-20 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" />
         </div>
@@ -88,14 +88,14 @@ export default function About() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-white font-mono">{PERSONAL_DETAILS.name}</h3>
-                    <p className="text-xs text-cyan-400 font-mono tracking-wider">FOUNDER-CLASS DEVELOPER</p>
+                    <p className="text-xs text-cyan-400 font-mono tracking-wider">AI ENGINEERING INTERN · NIMBLIZE</p>
                   </div>
                 </div>
 
                 <div className="text-sm leading-relaxed text-neutral-300 font-sans space-y-4">
                   <p>{PERSONAL_DETAILS.bio}</p>
                   <p>
-                    Currently pursuing a degree in <span className="text-cyan-400 font-semibold font-mono">Electrical & Electronics Engineering</span>, I leverage mathematical systems theory, hardware controller telemetry, and natural language model compilers to orchestrate full-stack software and hardware tools.
+                    Currently pursuing ECE at <span className="text-cyan-400 font-semibold font-mono">Anurag University, Hyderabad</span>. Hardware telemetry, multi-agent compilers, and internships at Nimblize and Bluestock — in parallel, not after graduation.
                   </p>
                 </div>
 
@@ -106,7 +106,7 @@ export default function About() {
                       CURRENT COORDINATES
                     </div>
                     <div className="text-xs font-semibold text-neutral-200 font-mono">
-                      India • ECE Hub
+                      Hyderabad · Anurag University
                     </div>
                   </div>
                   <div>
@@ -115,9 +115,17 @@ export default function About() {
                     </div>
                     <a
                       href={`mailto:${PERSONAL_DETAILS.email}`}
-                      className="text-xs font-semibold text-cyan-400 hover:underline font-mono"
+                      className="text-xs font-semibold text-cyan-400 hover:underline font-mono block"
                     >
                       {PERSONAL_DETAILS.email}
+                    </a>
+                    <a
+                      href={PERSONAL_DETAILS.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-semibold text-cyan-400 hover:underline font-mono mt-1 block"
+                    >
+                      linkedin.com/in/{PERSONAL_DETAILS.linkedinHandle}
                     </a>
                   </div>
                 </div>
@@ -129,7 +137,7 @@ export default function About() {
           <div className="lg:col-span-5 space-y-6">
             <h4 className="text-lg font-bold text-neutral-200 uppercase font-mono tracking-widest flex items-center gap-2">
               <Target className="h-5 w-5 text-cyan-400" />
-              <span>Core Core Mandates</span>
+              <span>Focus</span>
             </h4>
 
             {/* Mandate 1: Autonomous AI */}
@@ -158,23 +166,45 @@ export default function About() {
               </div>
             </div>
 
-            {/* Mandate 3: Hackathon Winner */}
+            {/* Mandate 3: Community */}
             <div className="flex items-start gap-4 rounded-xl border border-neutral-800/80 bg-neutral-900/40 p-4 transition-all hover:border-cyan-500/20">
               <div className="mt-1 rounded-lg bg-purple-950 border border-purple-500/20 p-2 text-purple-400">
                 <Award className="h-4 w-4" />
               </div>
               <div>
-                <h5 className="text-sm font-bold text-white font-mono">HACKATHON FIRST PLACE</h5>
+                <h5 className="text-sm font-bold text-white font-mono">COMMUNITY & LEADERSHIP</h5>
                 <p className="text-xs text-neutral-400 mt-1">
-                  Consistently prototyping fully scalable systems (CrisisOS) under pressure, pitching to VCs, and winning titles.
+                  OnePlus Student Ambassador and Unstop Campus Champion — practicing speaking, organizing, and building community.
                 </p>
               </div>
             </div>
           </div>
         </div>
 
+        <div className="mt-12 rounded-xl border border-neutral-800 bg-neutral-900/30 p-6 md:p-8">
+          <div className="flex items-center gap-2 mb-4">
+            <GraduationCap className="h-5 w-5 text-cyan-400" />
+            <h4 className="text-sm font-bold text-white font-display tracking-wide">Education</h4>
+          </div>
+          <p className="text-sm font-semibold text-white">{PERSONAL_DETAILS.education.degree}</p>
+          <p className="text-xs text-cyan-400 font-mono mt-1">{PERSONAL_DETAILS.education.institution}</p>
+          <p className="text-xs text-neutral-500 mt-1">
+            {PERSONAL_DETAILS.education.graduation} · {PERSONAL_DETAILS.education.status}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {PERSONAL_DETAILS.education.studyAreas.map((area) => (
+              <span
+                key={area}
+                className="rounded border border-neutral-800 bg-neutral-950/70 px-2.5 py-1 font-mono text-[10px] text-neutral-400"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+        </div>
+
         {/* Dynamic Navigation Flow Trigger */}
-        <NextSectionButton nextSectionId="engineering-lab" label="ENTER ENGINEERING WORKBENCH" />
+        <NextSectionButton nextSectionId="engineering-lab" label="OPEN ENGINEERING LAB" />
       </div>
     </section>
   );

@@ -20,23 +20,20 @@ export default function BootSequence({ onComplete }: BootSequenceProps) {
   const terminalEndRef = useRef<HTMLDivElement | null>(null);
 
   const rawLogs: LogLine[] = [
-    { text: 'RUTHVIK_GOUD_OS v2.06 // HARDWARE-AI CONTROL STATION', type: 'header', delay: 300 },
-    { text: 'INITIALIZING COLD BOOT SEQUENCE...', type: 'info', delay: 200 },
-    { text: 'LOADING COMPILER DEPENDENCIES & VECTORS...', type: 'info', delay: 350 },
-    { text: 'SYSTEM KERNEL CHECK: SECURE LINK STABLISHED', type: 'success', delay: 250 },
-    { text: 'PROBING MULTI-LAYER PCB MOTHERBOARD...', type: 'info', delay: 300 },
-    { text: 'DETECTING ON-BOARD CORES AND INTEGRATIONS:', type: 'header', delay: 150 },
-    { text: '  [NPU_01] -> TalentLens AI Silicon [ACTIVE: pgvector]', type: 'hardware', delay: 100 },
-    { text: '  [CMD_02] -> CrisisOS Terminal Unit [ACTIVE: WebSockets]', type: 'hardware', delay: 100 },
-    { text: '  [MCU_03] -> Arduino Sensor Controller [ACTIVE: Emergency Beacon]', type: 'hardware', delay: 100 },
-    { text: '  [COM_04] -> ESP32 Drone Flight Controller [ACTIVE: PID Stabilization]', type: 'hardware', delay: 100 },
-    { text: '  [SRV_05] -> Cloud Supabase State Server [ACTIVE: Redundant]', type: 'hardware', delay: 150 },
-    { text: 'CORE SYSTEM HEALTH RATINGS: 99.98% NOMINAL', type: 'success', delay: 200 },
-    { text: 'RESOLVING GRAPHICAL VIEWPORT INGRESS ROUTING...', type: 'info', delay: 250 },
-    { text: 'PORT 3000 OPEN (DUPLEX TUNNEL FULL SYNCED)', type: 'success', delay: 200 },
-    { text: 'PILOT BIO LOADED: ELECTRICAL & ELECTRONICS ENGINEER', type: 'success', delay: 150 },
-    { text: 'LAUNCHING SYSTEM CORRIDOR HUD LAYERS...', type: 'info', delay: 250 },
-    { text: 'SYS_BOOT_SUCCESS: SECURE LINK SECURED.', type: 'header', delay: 100 },
+    { text: 'RUTHVIK_GOUD_OS v3.0 // AI AUTOMATION WORKBENCH', type: 'header', delay: 280 },
+    { text: 'INITIALIZING WORKSPACE...', type: 'info', delay: 180 },
+    { text: 'COLLEGE: ANURAG UNIVERSITY — ECE, FIRST YEAR', type: 'success', delay: 200 },
+    { text: 'PRIMARY ROLE: AI & AUTOMATION INTERN @ NIMBLIZE', type: 'success', delay: 220 },
+    { text: 'SECONDARY: TECH INTERN @ BLUESTOCK', type: 'info', delay: 180 },
+    { text: 'DETECTING SYSTEM NODES:', type: 'header', delay: 140 },
+    { text: '  [NPU_01] -> Pramāṇa Governance Core [GraphRAG / Refuse]', type: 'hardware', delay: 90 },
+    { text: '  [CMD_02] -> Nimblize Intelligence Terminal [LangGraph]', type: 'hardware', delay: 90 },
+    { text: '  [MCU_03] -> Arduino Sensor Controller', type: 'hardware', delay: 90 },
+    { text: '  [COM_04] -> Aero Dot Flight Controller [PID + ToF]', type: 'hardware', delay: 90 },
+    { text: '  [SRV_05] -> FastAPI + pgvector + Redis', type: 'hardware', delay: 120 },
+    { text: 'LINKEDIN: linkedin.com/in/ruthvikgoud16', type: 'success', delay: 160 },
+    { text: 'AMBASSADOR: ONEPLUS STUDENT PROGRAM [ACTIVE]', type: 'info', delay: 160 },
+    { text: 'SYS_BOOT_SUCCESS.', type: 'header', delay: 80 },
   ];
 
   // Incrementally print log lines with synchronous audio diagnostics feedback
@@ -193,9 +190,9 @@ export default function BootSequence({ onComplete }: BootSequenceProps) {
               cyberAudio.speakWelcome();
               onComplete();
             }}
-            className="rounded border border-neutral-800 bg-neutral-900/40 px-3 py-1 font-mono text-[10px] text-neutral-400 hover:border-cyan-500/40 hover:text-cyan-400 active:bg-cyan-500/10 transition cursor-pointer"
+            className="rounded-lg border border-cyan-500/40 bg-cyan-950/30 px-4 py-2 font-mono text-[11px] font-bold text-cyan-300 hover:bg-cyan-500 hover:text-black transition cursor-pointer"
           >
-            SKIP_DIAG_OVERRIDE [ESC]
+            SKIP → ENTER PORTFOLIO [ESC]
           </button>
         </div>
       </div>

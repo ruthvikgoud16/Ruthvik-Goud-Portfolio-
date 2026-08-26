@@ -19,7 +19,8 @@ export default function CustomCursor() {
   useEffect(() => {
     // Detect mobile/touch devices
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isTouchDevice || prefersReduced) {
       return;
     }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mail, Github, Linkedin, Instagram, Send, CheckCircle2, ShieldAlert, Terminal, MessageSquare } from 'lucide-react';
+import { Mail, Github, Linkedin, Instagram, Send, CheckCircle2, ShieldAlert, Terminal, MessageSquare, Phone } from 'lucide-react';
 import { PERSONAL_DETAILS } from '../data/portfolioData';
 
 export default function Contact() {
@@ -59,8 +59,8 @@ export default function Contact() {
             <MessageSquare className="h-3.5 w-3.5" />
             <span>DUPLEX COMMUNICATIONS</span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-mono">
-            ESTABLISH LINK PROTOCOL
+          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-display">
+            Contact
           </h2>
           <div className="mx-auto mt-2 h-1 w-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
         </div>
@@ -92,6 +92,20 @@ export default function Contact() {
                 </div>
               </a>
 
+              <a
+                id="contact-node-phone"
+                href={`tel:${PERSONAL_DETAILS.phone.replace(/\s/g, '')}`}
+                className="flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900/40 p-4 transition-all hover:border-cyan-500/30 hover:bg-[#0c0c14]"
+              >
+                <div className="rounded-lg bg-emerald-950 border border-emerald-500/25 p-2.5 text-emerald-400">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <div>
+                  <div className="text-[9px] font-mono font-medium text-neutral-500 uppercase tracking-widest">// Phone</div>
+                  <div className="text-sm font-bold text-neutral-200 font-mono mt-0.5">{PERSONAL_DETAILS.phone}</div>
+                </div>
+              </a>
+
               {/* LinkedIn */}
               <a
                 id="contact-node-linkedin"
@@ -105,7 +119,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-[9px] font-mono font-medium text-neutral-500 uppercase tracking-widest">// professional directory</div>
-                  <div className="text-sm font-bold text-neutral-200 font-mono mt-0.5">Bathini Ruthvik Goud</div>
+                  <div className="text-sm font-bold text-neutral-200 font-mono mt-0.5">
+                    linkedin.com/in/{PERSONAL_DETAILS.linkedinHandle}
+                  </div>
                 </div>
               </a>
 
@@ -151,7 +167,7 @@ export default function Contact() {
               <div className="mb-6 flex items-center justify-between border-b border-neutral-900 pb-3">
                 <div className="flex items-center gap-2">
                   <Terminal className="h-4.5 w-4.5 text-cyan-400" />
-                  <span className="font-mono text-xs font-semibold text-neutral-300">PING_STATION_CONSOLE</span>
+                  <span className="font-mono text-xs font-semibold text-neutral-300">Message</span>
                 </div>
                 <span className="font-mono text-[9px] text-neutral-600">INPUT PROTOCOL v1.0</span>
               </div>
@@ -161,7 +177,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block font-mono text-[10px] text-neutral-500 uppercase font-bold mb-1.5">
-                      Pilot Name *
+                      Name *
                     </label>
                     <input
                       type="text"
@@ -174,7 +190,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <label className="block font-mono text-[10px] text-neutral-500 uppercase font-bold mb-1.5">
-                      Pilot Email *
+                      Email *
                     </label>
                     <input
                       type="email"
@@ -244,7 +260,7 @@ export default function Contact() {
                     disabled={isLoading}
                     className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 font-mono text-xs font-bold text-white shadow-lg shadow-cyan-500/15 hover:scale-[1.02] active:scale-95 disabled:opacity-50 transition"
                   >
-                    <span>{isLoading ? 'ENCODING...' : 'TRANSMIT SIGNAL'}</span>
+                    <span>{isLoading ? 'Sending...' : 'Send message'}</span>
                     <Send className="h-3.5 w-3.5" />
                   </button>
                 </div>
@@ -255,9 +271,23 @@ export default function Contact() {
         </div>
 
         {/* Humble system credits footer */}
-        <div className="mt-20 border-t border-neutral-900 pt-8 text-center text-neutral-600 font-mono text-[10px]">
-          <div>RUTHVIK GOUD // HARDWARE-AI CONTROL STATION v2.0</div>
-          <div className="mt-1">Hand-engineered using React, TypeScript, and Tailwind CSS.</div>
+        <div className="mt-20 border-t border-neutral-900 pt-8 text-center text-neutral-500 font-mono text-[10px] space-y-3">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
+            <a href={PERSONAL_DETAILS.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">
+              LinkedIn
+            </a>
+            <a href={PERSONAL_DETAILS.github} target="_blank" rel="noopener noreferrer" className="hover:text-cyan-400">
+              GitHub
+            </a>
+            <a href={PERSONAL_DETAILS.resumeUrl} download="Ruthvik_Goud_Resume.pdf" className="hover:text-cyan-400">
+              Resume
+            </a>
+            <a href={`mailto:${PERSONAL_DETAILS.email}`} className="hover:text-cyan-400">
+              Email
+            </a>
+          </div>
+          <div>Ruthvik Goud · Anurag University · Nimblize intern</div>
+          <div className="text-neutral-600">React · TypeScript · Tailwind</div>
         </div>
 
       </div>

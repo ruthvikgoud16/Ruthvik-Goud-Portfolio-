@@ -16,6 +16,9 @@ export default function ParticleNetwork() {
   const mouseRef = useRef({ x: -9999, y: -9999 });
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -32,8 +35,9 @@ export default function ParticleNetwork() {
       canvas.height = canvas.parentElement?.clientHeight || window.innerHeight;
 
       nodes = [];
-      const count = Math.floor((canvas.width * canvas.height) / 14000); // Scale count with grid area
-      const finalCount = Math.min(Math.max(count, 40), 120);
+      const isMobile = window.innerWidth < 768;
+      const count = Math.floor((canvas.width * canvas.height) / (isMobile ? 28000 : 14000));
+      const finalCount = Math.min(Math.max(count, isMobile ? 18 : 40), isMobile ? 36 : 120);
 
       for (let i = 0; i < finalCount; i++) {
         const rx = Math.random() * canvas.width;

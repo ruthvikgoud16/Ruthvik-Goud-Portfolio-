@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { motion } from 'motion/react';
-import { Github, ExternalLink, Code2, Cpu, Database, Cpu as ChipIcon, Globe, Radio } from 'lucide-react';
+import { Github, ExternalLink, Code2, Cpu, Cpu as ChipIcon, Globe, Radio, ChevronDown } from 'lucide-react';
 import { PROJECTS_DATA } from '../data/portfolioData';
 import { Project } from '../types';
 import NextSectionButton from './NextSectionButton';
@@ -11,6 +10,7 @@ function ProjectCard({ project }: { project: Project; key?: string }) {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [spotlight, setSpotlight] = useState({ x: 50, y: 50 });
+  const [open, setOpen] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = cardRef.current;
@@ -106,7 +106,7 @@ function ProjectCard({ project }: { project: Project; key?: string }) {
           </div>
 
           <span className={`rounded-full border px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest ${themeRef.badgeBg}`}>
-            {project.category}
+            {project.featured ? 'featured' : project.category}
           </span>
         </div>
 
@@ -122,11 +122,30 @@ function ProjectCard({ project }: { project: Project; key?: string }) {
           {project.description}
         </p>
 
+        {project.longDescription && (
+          <div className="mt-3">
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setOpen((v) => !v);
+              }}
+              className="inline-flex items-center gap-1 font-mono text-[10px] font-semibold uppercase tracking-wider text-cyan-400 hover:text-white"
+            >
+              Architecture
+              <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
+            </button>
+            {open && (
+              <p className="mt-2 text-xs text-neutral-400 leading-relaxed">{project.longDescription}</p>
+            )}
+          </div>
+        )}
+
         {/* Impact List */}
         {project.impactMetrics && project.impactMetrics.length > 0 && (
           <div className="mt-4 space-y-2 border-l-2 border-neutral-800 pl-4 py-1.5 bg-neutral-950/20 rounded-r-lg">
             <span className="font-mono text-[8px] text-neutral-500 tracking-wider block uppercase">
-              Metrics & Achievements:
+              Metrics
             </span>
             <ul className="space-y-1">
               {project.impactMetrics.map((metric) => (
@@ -155,7 +174,7 @@ function ProjectCard({ project }: { project: Project; key?: string }) {
 
         <div className="flex items-center justify-between">
           {/* GitHub action */}
-          {project.github ? (
+              {project.github ? (
             <a
               id={`proj-git-${project.id}`}
               href={project.github}
@@ -164,7 +183,7 @@ function ProjectCard({ project }: { project: Project; key?: string }) {
               className="flex items-center gap-1 text-xs font-mono font-semibold text-neutral-400 hover:text-white transition-colors"
             >
               <Github className="h-4 w-4" />
-              <span>[code_src]</span>
+              <span>Source</span>
             </a>
           ) : (
             <span className="text-[10px] text-neutral-600 font-mono select-none">// custom firmware</span>
@@ -179,11 +198,11 @@ function ProjectCard({ project }: { project: Project; key?: string }) {
               rel="noopener noreferrer"
               className="flex items-center gap-1 rounded bg-neutral-900 border border-neutral-800 px-3 py-1 font-mono text-xs font-semibold text-cyan-400 hover:bg-neutral-800 hover:border-cyan-500/30 transition-all hover:text-white"
             >
-              <span>launch_node</span>
+              <span>Live</span>
               <ExternalLink className="h-3 w-3" />
             </a>
           ) : (
-            <span className="text-[10px] text-neutral-600 font-mono select-none">// simulation node</span>
+            <span className="text-[10px] text-neutral-600 font-mono select-none"> </span>
           )}
         </div>
       </div>
@@ -192,33 +211,42 @@ function ProjectCard({ project }: { project: Project; key?: string }) {
 }
 
 export default function Projects() {
+  const featured = PROJECTS_DATA.filter((p) => p.featured);
+  const rest = PROJECTS_DATA.filter((p) => !p.featured);
+
   return (
     <section id="projects" className="relative bg-[#09090c] py-24 px-6 md:px-12 border-b border-neutral-800">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_80%,rgba(6,182,212,0.02),transparent_50%)]" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
-        
-        {/* Section title */}
         <div className="mb-16 text-center">
           <div className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/20 bg-cyan-950/40 px-3 py-1 text-xs font-semibold text-cyan-400 font-mono mb-4">
             <Code2 className="h-3.5 w-3.5" />
-            <span>DEPLOYED SYSTEMS</span>
+            <span>SHIPPED SYSTEMS</span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-mono">
-            FEATURED ENGINEERING RUNS
+          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-display">
+            Featured work
           </h2>
-          <div className="mx-auto mt-2 h-1 w-20 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full" />
+          <p className="mx-auto mt-3 max-w-lg text-sm text-neutral-400">
+            Pramāṇa and Nimblize first — evidence-gated agents and the internship product. Then the rest of the stack.
+          </p>
+          <div className="mx-auto mt-4 h-1 w-20 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full" />
         </div>
 
-        {/* Responsive Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch font-sans">
-          {PROJECTS_DATA.map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch font-sans mb-10">
+          {featured.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
 
-        {/* Dynamic Navigation Flow Trigger */}
-        <NextSectionButton nextSectionId="experience" label="RECONSTRUCT MISSION LOGS" />
+        <h3 className="mb-6 font-mono text-[10px] uppercase tracking-widest text-neutral-500">More systems</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch font-sans">
+          {rest.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+
+        <NextSectionButton nextSectionId="leadership" label="VIEW LEADERSHIP" />
       </div>
     </section>
   );

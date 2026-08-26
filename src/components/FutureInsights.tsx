@@ -59,7 +59,7 @@ export default function FutureInsights() {
               Future <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Insights & roadmap</span>
             </h2>
             <p className="mt-3 text-neutral-400 font-medium text-sm sm:text-base leading-relaxed">
-              Exploiting the overlap of Electronics & Communication circuits with advanced machine intelligence. These are my blueprint drafts for next-generation self-improving software pipelines.
+              These are the next layers on Pramāṇa, Nimblize, and AutoOps — memory, self-healing ops, and evidence-first guardrails.
             </p>
           </div>
           <div className="flex items-center gap-4 border border-neutral-800 bg-[#0a0a0e] px-4 py-3 rounded-xl font-mono text-[10px] text-neutral-400 select-none shadow-inner">

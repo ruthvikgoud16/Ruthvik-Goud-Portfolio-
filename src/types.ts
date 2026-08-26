@@ -9,6 +9,7 @@ export interface Project {
   github?: string;
   live?: string;
   impactMetrics?: string[];
+  featured?: boolean;
 }
 
 export interface Experience {
@@ -20,6 +21,16 @@ export interface Experience {
   description: string;
   achievement: string;
   iconType: 'education' | 'work' | 'event' | 'trophy';
+  tags: string[];
+  featured?: boolean;
+}
+
+export interface LeadershipRole {
+  id: string;
+  title: string;
+  organization: string;
+  period: string;
+  description: string;
   tags: string[];
 }
 

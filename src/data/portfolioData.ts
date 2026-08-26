@@ -1,314 +1,390 @@
-import { Project, Experience, SkillCategory, LabDevice } from '../types';
+import { Project, Experience, SkillCategory, LabDevice, LeadershipRole } from '../types';
 
 export const PERSONAL_DETAILS = {
   name: 'Ruthvik Goud',
   email: 'bathiniruthvik380@gmail.com',
+  phone: '+91 9392796458',
   github: 'https://github.com/ruthvikgoud16',
   linkedin: 'https://linkedin.com/in/ruthvikgoud16',
+  linkedinHandle: 'ruthvikgoud16',
   instagram: 'https://instagram.com/ruthviikk._',
-  roles: ['ECE Student', 'Google Process Associate', 'AI & Technology Enthusiast', 'Hackathon Builder'],
-  oneLiner: 'Electronics and Communication Engineering (ECE) student building autonomous AI agents, exploring IoT embedded systems, and driving Google Process support.',
-  bio: 'I am a motivated first-year Electronics and Communication Engineering (ECE) student at Sreenidhi Institute of Science and Technology (SNIST), Hyderabad, combined with professional experience in the Google Process at Concentrix. Deeply passionate about Artificial Intelligence, Data Analytics, and Embedded Systems, I excel in bridging hardware-software interfaces. From winning HackPrix Season 2 (CrisisOS) and building auto-dispatch pipelines to creating collaborative drones (ESP32) and AI agent systems (AutoOps), I love continuous learning and building high-impact tech.',
+  website: 'https://ruthvikgoud.vercel.app',
+  resumeUrl: '/resume.pdf',
+  roles: [
+    'AI Engineering Intern @ Nimblize',
+    'Data Analyst Intern @ Bluestock Fintech',
+    'ECE Student @ Anurag University',
+    'OnePlus Student Ambassador',
+    'Multi-Agent AI Builder'
+  ],
+  oneLiner:
+    'ECE student at Anurag University and AI Engineering Intern at Nimblize — building evidence-gated multi-agent systems, GraphRAG pipelines, and embedded IoT. Also a Data Analyst Intern at Bluestock Fintech.',
+  bio: 'I am a first-year Electronics and Communication Engineering student at Anurag University, Hyderabad. My primary work is as an AI Engineering Intern at Nimblize, where I design multi-agent product-intelligence systems with LangGraph, RAG, and production backends. I also intern at Bluestock Fintech as a Data Analyst and serve as a OnePlus Student Ambassador. I care about shipping systems that refuse when evidence is weak — not collecting titles.',
   education: {
-    degree: 'Bachelor of Technology (B.Tech) - Electronics and Communication Engineering (ECE)',
-    institution: 'Sreenidhi Institute of Science and Technology (SNIST), Hyderabad',
-    graduation: 'Expected Graduation: 2029',
-    status: 'Current Status: First Year – First Semester',
+    degree: 'Bachelor of Technology (B.Tech) — Electronics and Communication Engineering',
+    institution: 'Anurag University, Hyderabad',
+    graduation: 'Expected Graduation: 2030',
+    status: 'Current Status: First Year (2026 – 2030)',
     studyAreas: [
-      'Basic Electronics',
-      'Problem Solving Techniques',
+      'Data Structures & Algorithms',
+      'Object-Oriented Programming (C++)',
+      'Database Management Systems',
+      'Operating Systems',
+      'Computer Networks',
       'Engineering Mathematics',
-      'Communication Skills',
-      'Programming Fundamentals',
-      'Digital Fundamentals (Basics)'
+      'Digital System Design'
     ]
   },
   languages: ['English', 'Telugu', 'Hindi'],
   interests: [
-    'Artificial Intelligence',
-    'Data Analytics',
-    'Embedded Systems',
-    'Electronics & Communication',
-    'Front-End Development',
-    'Semiconductor Technologies',
-    'Innovation & Product Development',
-    'Emerging Technologies',
-    'IoT & Robotics',
-    'Technical Content & Digital Marketing'
+    'Multi-Agent AI Systems',
+    'GraphRAG & Knowledge Graphs',
+    'Embedded Systems & IoT',
+    'Cloud & Automation',
+    'Community Building',
+    'Product Engineering'
   ]
 };
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: 'crisisos',
-    title: 'CrisisOS Command',
-    subtitle: 'HackPrix S2 Winner - Real-time Disaster Response Command Center',
-    description: 'A multi-agent operating system simulator with integrated real-time WebSockets, automated GPT-4 hazard dispatch routing, and emergency fallback networks.',
-    longDescription: 'Developed within 36 hours for HackPrix Season 2, winning 1st place overall. CrisisOS serves as a high-fidelity disaster management command system combining live sensor feeds, dynamic multi-agent assignment rosters, and localized LLM-driven crisis routing grids to direct rescue teams in real-time during extreme emergencies.',
-    category: 'web',
-    tech: ['React', 'FastAPI', 'WebSockets', 'GPT-4', 'Tailwind', 'Vector DB'],
-    github: 'https://github.com/ruthvikgoud16/crisis-os',
-    live: 'https://crisisos.vercel.app',
+    id: 'pramana',
+    title: 'Pramāṇa',
+    subtitle: 'Evidence-Gated Enterprise Knowledge Multi-Agent System',
+    description:
+      'Authorization before retrieval. Privacy Gate → Authorization → Hybrid GraphRAG → Draft → Verification → FactCheck → Governance — the system refuses rather than hallucinates.',
+    longDescription:
+      'Pramāṇa inverts conventional Retrieve → Filter → Generate. Six specialized stages enforce RBAC/ABAC, prompt-injection resistance, Hybrid GraphRAG, evidence mapping, fact-checking, trust scoring, audit logs, provenance, and a compliance seal. If evidence is insufficient, it refuses.',
+    category: 'ai',
+    featured: true,
+    tech: ['LangGraph', 'Hybrid GraphRAG', 'RBAC/ABAC', 'Vector Search', 'Knowledge Graph', 'Python', 'FastAPI'],
+    github: 'https://github.com/ruthvikgoud16/pramana',
     impactMetrics: [
-      '1st Place HackPrix Season 2 Winner',
-      'Sub-50ms live socket broadcast latency',
-      'Autonomous orchestration of 5 rescue agents'
+      'Six-agent pipeline: Privacy Gate, Retriever, Draft, Verify, FactCheck, Govern',
+      'Authorization before retrieval — not post-filter RAG',
+      'Refuses when evidence is insufficient'
+    ]
+  },
+  {
+    id: 'nimblize',
+    title: 'Nimblize',
+    subtitle: 'AI & Automation Internship — Multi-Agent Competitor Intelligence',
+    description:
+      'Production multi-agent platform for competitor intelligence and product recommendation, built during my Nimblize internship.',
+    longDescription:
+      'Orchestrates LangGraph agents with RAG, pgvector, RAGAS evaluation, FastAPI, Redis queues, Presidio PII filtering, rate limiting, telemetry, and Docker. Built as intern work — not a throwaway prototype.',
+    category: 'ai',
+    featured: true,
+    tech: ['LangGraph', 'RAG', 'pgvector', 'RAGAS', 'FastAPI', 'Redis', 'Presidio', 'Docker'],
+    github: 'https://github.com/ruthvikgoud16/nimblize',
+    impactMetrics: [
+      'Primary internship product — AI & Automation at Nimblize',
+      'PII filtering, rate limits, and evaluation loops in the path',
+      'Queue-backed multi-agent orchestration'
+    ]
+  },
+  {
+    id: 'resilience-graph',
+    title: 'ResilienceGraph',
+    subtitle: 'Ontology for Cascading Infrastructure Failures',
+    description:
+      'Relationship-aware infrastructure graph: power, telecom, water, hospitals, transport, weather, and emergency resources — predict cascade before it hits.',
+    longDescription:
+      'Demo chain: substation failure → telecom loses backup → hospital connectivity risk → emergency comms risk → affected facilities → backup resource → recommended intervention. Built for ontology / knowledge-graph reasoning, not a flat dashboard.',
+    category: 'ai',
+    tech: ['Microsoft Fabric', 'Knowledge Graph', 'Ontology', 'Python', 'Graph Reasoning'],
+    github: 'https://github.com/ruthvikgoud16/resilience-graph',
+    impactMetrics: [
+      'Dependency reasoning across critical infrastructure',
+      'Designed for Fabric Ontology / knowledge-graph tracks',
+      'Intervention recommendations from graph state'
     ]
   },
   {
     id: 'autoops',
     title: 'AutoOps Enterprise Agent',
-    subtitle: 'NVIDIA Open Hackathons (Ongoing) - Multi-Agent Enterprise Automation Platform',
-    description: 'A sophisticated multi-agent system coordinating Planner, Retriever, Execution, Validation, and Supervisor specialists using NVIDIA NIM.',
-    longDescription: 'Created for the NVIDIA Open Hackathons. AutoOps automates complex enterprise workflows like document processing, data entry, search retrieval, and reporting. Leveraging Llama models, LangGraph, and high-performance inference through NVIDIA NIM, it runs a feedback loops ecosystem with complete human-in-the-loop safety hooks.',
+    subtitle: 'Multi-Agent Enterprise Automation Platform',
+    description:
+      'Planner, Retriever, Execution, Validation, and Supervisor agents coordinating document workflows with human-in-the-loop safety.',
+    longDescription:
+      'Enterprise automation across processing, retrieval, and reporting. LangGraph + Llama-class models with supervisor feedback loops and HITL hooks.',
     category: 'ai',
     tech: ['NVIDIA NIM', 'Llama Models', 'LangGraph', 'LangChain', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
     github: 'https://github.com/ruthvikgoud16/autoops-agent',
-    live: '#',
     impactMetrics: [
-      'Active development for NVIDIA Open Hackathons by Team AgentForge',
-      'Dynamic multi-agent orchestration grid',
-      'Context-aware reasoning and RAG vector searches'
+      'Five specialized agent roles in one orchestration grid',
+      'Human-in-the-loop validation gates',
+      'RAG-backed execution with supervisor review'
+    ]
+  },
+  {
+    id: 'talentlens-x',
+    title: 'TalentLens X',
+    subtitle: 'AI Candidate Discovery & Weighted Ranking',
+    description:
+      'Semantic matching over a large candidate set with explicit ranking weights: Career 35%, Recruitability 25%, Skills 25%, Semantic Match 15%.',
+    longDescription:
+      'Vector search plus weighted scoring so rankings are explainable. Built for high-volume candidate discovery rather than keyword filters.',
+    category: 'ai',
+    tech: ['LangChain', 'Vector Search', 'Python', 'FastAPI', 'React', 'pgvector'],
+    github: 'https://github.com/ruthvikgoud16/talent-lens',
+    impactMetrics: [
+      'Weighted ranking: 35 / 25 / 25 / 15',
+      'Semantic match over dense embeddings',
+      'Explainable score breakdown per candidate'
     ]
   },
   {
     id: 'redrob-truth-engine',
     title: 'Redrob Truth Engine',
-    subtitle: 'India.Runs Hackathon (Ongoing) - AI Candidate Verification & Trust Layer',
-    description: 'An AI-native candidate validation platform that analyzes claims, spots contradictions, and calculates trust ratings automatically.',
-    longDescription: 'Created alongside my team "Future AI Builders" for India.Runs Track 1. The Redrob Truth Engine validates resume and bio statements prior to interviews, checking for underlying conflicts, generating deep reference reports, and creating unified secure scores.',
+    subtitle: 'AI Candidate Verification & Trust Layer',
+    description:
+      'Validates resume and bio claims, spots contradictions, and produces a unified trust score before interviews.',
+    longDescription:
+      'Built with team Future AI Builders. Semantic contradiction checks, reference-style reports, and a single trust rating for recruiting workflows.',
     category: 'ai',
-    tech: ['Python', 'AI Systems', 'Workflow Innovation', 'React', 'FastAPI', 'Semantic Scoring'],
+    tech: ['Python', 'FastAPI', 'React', 'Semantic Scoring', 'Workflow Systems'],
     github: 'https://github.com/ruthvikgoud16/redrob-truth-engine',
-    live: '#',
     impactMetrics: [
-      'Participating in Track 1 for AI Systems & Workflow Innovation',
-      'Automated semantic truth validation logs',
-      'Real-time recruitment workflow pipeline acceleration'
+      'Automated claim vs. evidence comparison',
+      'Contradiction and conflict logs',
+      'Recruitment pipeline acceleration'
     ]
   },
   {
-    id: 'talentlens',
-    title: 'TalentLens AI',
-    subtitle: 'Enterprise Candidate Screening & Semantic Skill Map',
-    description: 'Autonomous CV screening pipeline harnessing semantic analysis, dense vector embeddings, custom query expansion, and LangChain agents.',
-    longDescription: 'TalentLens leverages Retrieval-Augmented Generation (RAG) coupled with PostgreSQL + pgvector to automatically categorize thousands of candidate submissions. It detects underlying skill competencies, ranks matching alignment scores, and provides structured explanatory feedback.',
-    category: 'ai',
-    tech: ['LangChain', 'Llama 3', 'FastAPI', 'Supabase', 'pgvector', 'React'],
-    github: 'https://github.com/ruthvikgoud16/talent-lens',
-    live: '#',
+    id: 'aero-dot',
+    title: 'Aero Dot',
+    subtitle: 'ESP32 Programmable Drone — ToF + PID',
+    description:
+      'Embedded flight controller firmware with time-of-flight sensing, gyro telemetry, and PID self-leveling on ESP32.',
+    longDescription:
+      'Microsecond ESC pulse loops, MPU-class gyro fusion, ToF ranging, and PID attitude hold. Hardware-software loop closed in C++.',
+    category: 'hardware',
+    tech: ['ESP32', 'C++', 'ToF Sensing', 'PID Control', 'MPU6050', 'ESC Signals'],
+    github: 'https://github.com/ruthvikgoud16/aero-dot',
     impactMetrics: [
-      'Auto-evaluated 500+ resumes in trials',
-      '94% skill alignment matching score accuracy',
-      'Reduced parsing time by 12x vs manual screeners'
+      'Closed-loop PID attitude hold',
+      'ToF ranging for proximity awareness',
+      'Real-time gyro interrupt routines'
+    ]
+  },
+  {
+    id: 'nafithah',
+    title: 'Nafithah',
+    subtitle: 'Tokenized Invoice Financing + On-Chain Credit',
+    description:
+      'Invoice financing flow with on-chain credit scoring so liquidity and trust sit on the same ledger path.',
+    longDescription:
+      'Maps invoices to tokenized instruments and a credit score derived on-chain — built as a product prototype for trade finance.',
+    category: 'web',
+    tech: ['Smart Contracts', 'Credit Scoring', 'Web3', 'React', 'TypeScript'],
+    github: 'https://github.com/ruthvikgoud16/nafithah',
+    impactMetrics: [
+      'On-chain credit scoring model',
+      'Tokenized invoice lifecycle',
+      'End-to-end financing prototype'
+    ]
+  },
+  {
+    id: 'portpulse',
+    title: 'PortPulse',
+    subtitle: 'Supply-Chain Intelligence PWA',
+    description:
+      'Progressive web app for supply-chain signals — Firebase backend with Gemini-assisted intelligence overlays.',
+    longDescription:
+      'PWA for operators who need live logistics context. Firebase for state, Gemini for summarization and exception flags.',
+    category: 'web',
+    tech: ['PWA', 'Firebase', 'Gemini', 'React', 'TypeScript'],
+    github: 'https://github.com/ruthvikgoud16/portpulse',
+    impactMetrics: [
+      'Offline-capable PWA shell',
+      'Gemini exception summaries',
+      'Firebase-backed live state'
+    ]
+  },
+  {
+    id: 'carbon-intelligence',
+    title: 'Carbon Intelligence Suite',
+    subtitle: 'CarbonMind · CarbonFlow · CarbonLens · CarbonMirror',
+    description:
+      'Family of carbon accounting and insight tools spanning measurement, flow, visualization, and mirror-back reporting.',
+    longDescription:
+      'Unified carbon workstream: ingest, flow modeling, lens views for operators, and mirror reports for stakeholders.',
+    category: 'ai',
+    tech: ['Python', 'Data Pipelines', 'React', 'Analytics'],
+    github: 'https://github.com/ruthvikgoud16/carbon-intelligence',
+    impactMetrics: [
+      'Four coordinated product surfaces',
+      'Measurement through reporting in one suite',
+      'Operator + stakeholder views'
     ]
   },
   {
     id: 'career-chatbot',
     title: 'AI Career Guidance Chatbot',
-    subtitle: 'Python NLP Career Advisory System',
-    description: 'Intelligent desktop chatbot helping students find appropriate profession directions based on interests and basic NLP calculations.',
-    longDescription: 'Developed a python-based interface executing natural language parsing to match student qualifications and soft skill inputs with diverse modern tech career opportunities.',
+    subtitle: 'Python NLP Career Advisory',
+    description:
+      'Desktop NLP advisor matching student interests and skills to modern tech career paths.',
     category: 'ai',
-    tech: ['Python', 'NLP library', 'Tkinter UI', 'Data Models'],
+    tech: ['Python', 'NLP', 'Tkinter'],
     github: 'https://github.com/ruthvikgoud16/ai-career-chatbot',
-    live: '#',
-    impactMetrics: [
-      'Interactive guidance workflows',
-      'NLP matching scoring system',
-      'Instant custom suggestions generation'
-    ]
-  },
-  {
-    id: 'mental-health-app',
-    title: 'Mental Health Support App',
-    subtitle: 'Responsive Wellness Resource Hub',
-    description: 'A dedicated web helper delivering support modules, mindful resources, and contact routes for emotional assistance.',
-    longDescription: 'A fully responsive client-side interface built with native HTML, CSS, and interactive JavaScript to present accessible self-care activities, tracking, and quick help links.',
-    category: 'web',
-    tech: ['HTML', 'CSS', 'JavaScript', 'Responsive UI', 'State Storage'],
-    github: 'https://github.com/ruthvikgoud16/mental-health-app',
-    live: '#',
-    impactMetrics: [
-      '100% accessible mobile layout',
-      'Interactive mood self-appraisals',
-      'Resource directory mapping'
-    ]
+    impactMetrics: ['Interactive guidance flows', 'NLP matching scores', 'Instant path suggestions']
   },
   {
     id: 'distance-sensor',
     title: 'Arduino Smart Distance Sensor',
-    subtitle: 'Ultrasonic Proximity Detector & Alert System',
-    description: 'Arduino board project tracking objects, computing obstacle distances, and signaling alerts via buzzer and flash configurations.',
-    longDescription: 'Designed and engineered using HC-SR04 ultrasonic sensor, Arduino MCU, and custom alerts code to enable obstacle prevention with instant microsecond-scale warning triggers.',
+    subtitle: 'Ultrasonic Proximity Detector',
+    description:
+      'HC-SR04 + Arduino distance tracking with buzzer and LED alert configurations.',
     category: 'hardware',
-    tech: ['Arduino Uno', 'C++', 'HC-SR04 Ultrasonic Sensor', 'Buzzers & LEDs', 'Analog Circuits'],
+    tech: ['Arduino Uno', 'C++', 'HC-SR04', 'Analog Circuits'],
     github: 'https://github.com/ruthvikgoud16/arduino-distance-sensor',
-    live: '#',
-    impactMetrics: [
-      'Precise distance measurement within 2cm - 400cm',
-      'Immediate physical warning triggers',
-      'Simple modular hardware build pattern'
-    ]
+    impactMetrics: ['2cm–400cm ranging', 'Immediate physical alerts', 'Modular hardware build']
   },
   {
     id: 'safety-wristband',
     title: 'Personal Safety Bracelet Concept',
-    subtitle: 'GPS + Panic Alert Wearable Device',
-    description: 'Proposed safety wearable designed to capture coordinates and transmit telemetry alerts automatically to contacts on trigger.',
-    longDescription: 'A custom ECE conceptual design featuring microcontrollers, a tiny GPS transceiver, and cellular modules designed to auto-broadcast a localized help text signal during critical security threats.',
+    subtitle: 'GPS + Panic Alert Wearable',
+    description:
+      'Conceptual ECE wearable: MCU, GPS, and cellular path that broadcasts a help signal on trigger.',
     category: 'concept',
-    tech: ['GPS Tracking', 'Panic Alert Logic', 'Telemetry Beacon', 'Embedded Circuitry'],
+    tech: ['GPS Tracking', 'Panic Alert Logic', 'Embedded Circuitry'],
     github: 'https://github.com/ruthvikgoud16/safety-wristband',
-    live: '#',
-    impactMetrics: [
-      'Integrated physical SOS trigger strategy',
-      'Low power circuit architecture design',
-      'Automatic coordinate-linked contact alarm loops'
-    ]
-  },
-  {
-    id: 'esp32-drone',
-    title: 'Autonomous ESP32 Drone Hover',
-    subtitle: 'Makers Arena 2.0 Coimbatore - Collaborative Aerial Avionics',
-    description: 'ESP32 flight controller firmware managing real-time attitude heading telemetry, precise gyro calculations, and microsecond ESC pulse loops.',
-    longDescription: 'Assembled and calibrated alongside my engineering team at Makers Arena 2.0 2026 in Coimbatore. Configured PID self-leveling loops and high-frequency communication links to ensure high-accuracy stable physical flight.',
-    category: 'hardware',
-    tech: ['ESP32', 'C++', 'Gyro (MPU6050)', 'PID Feedback Loop', 'ESC Signals', 'RTOS Core Interfacing'],
-    github: 'https://github.com/ruthvikgoud16/esp32-drone',
-    live: '#',
-    impactMetrics: [
-      'Assembled at Makers Arena 2026, Coimbatore',
-      'Highly balanced microsecond ESC signals',
-      'True gyro attitude alignment metrics'
-    ]
+    impactMetrics: ['Physical SOS trigger', 'Low-power circuit intent', 'Coordinate-linked alerts']
   }
 ];
 
 export const EXPERIENCES_DATA: Experience[] = [
   {
-    id: 'exp-concentrix',
-    title: 'Customer Support Associate',
-    organization: 'Google Process at Concentrix',
-    period: 'Present',
-    role: 'Google Process Support Engine',
-    description: 'Assisting Google customers with product and service inquiries, solving account and search logistics, and maintaining top support scores under fast performance constraints. Leveraged CRM tools and collaborative frameworks.',
-    achievement: 'Strengthened strong analytical thinking, incident solution pathways, and customer relation professionalism.',
+    id: 'exp-nimblize',
+    title: 'AI Engineering Intern',
+    organization: 'Nimblize',
+    period: 'May 2026 – Present',
+    role: 'Primary Internship',
+    featured: true,
+    description:
+      'Building AI product-intelligence workflows with FastAPI, LangGraph, PostgreSQL, Redis, and Gemini. Designed RAG pipelines with semantic retrieval and vector embeddings, plus backend APIs for multi-agent orchestration, prompt evaluation, telemetry, and automation.',
+    achievement:
+      'Primary professional role. Internship product work on competitor intelligence and recommendation — not a side demo. LinkedIn: linkedin.com/in/ruthvikgoud16',
     iconType: 'work',
-    tags: ['Google Process', 'Concentrix', 'Customer Support', 'Problem Solving', 'Team Collaboration']
+    tags: ['LangGraph', 'RAG', 'PostgreSQL', 'Redis', 'FastAPI', 'Gemini']
   },
   {
-    id: 'exp-hackprix',
-    title: 'Winner (1st Place)',
-    organization: 'HackPrix Season 2',
-    period: '2025',
-    role: 'Lead Architect & AI Designer',
-    description: 'Led our core team to conceptualize and program CrisisOS, a crisis dispatch terminal combining live WebSockets data feeding and automated multi-agent GPT solutions.',
-    achievement: 'Placed 1st Place overall out of over 100+ hardware and software competitors.',
-    iconType: 'trophy',
-    tags: ['CrisisOS', 'React', 'FastAPI', 'WebSockets', 'GPT Orchestrator']
+    id: 'exp-bluestock',
+    title: 'Data Analyst Intern',
+    organization: 'Bluestock Fintech',
+    period: '2026 – Present',
+    role: 'Analytics & Reporting',
+    description:
+      'Analyzing business and financial datasets for actionable insights. Cleaning, transforming, and validating structured data; building SQL reports and dashboards; improving reporting accuracy through systematic validation.',
+    achievement: 'Delivered validated reports and dashboards on live business data.',
+    iconType: 'work',
+    tags: ['SQL', 'Data Validation', 'Dashboards', 'Analytics']
   },
   {
-    id: 'exp-agentforge',
-    title: 'NVIDIA Hackathon Developer',
-    organization: 'NVIDIA Open Hackathons (Active / In-Progress)',
-    period: '2026',
-    role: 'Team Lead & AI Architect',
-    description: 'Spearheading team "AgentForge" to build AutoOps: Autonomous Enterprise Workflow Agent, orchestrating multi-agent networks powered by NVIDIA NIM for automated systems pipeline.',
-    achievement: 'Designing custom system topology mapping out five specialized planning and validation agent units.',
+    id: 'exp-oneplus',
+    title: 'Student Ambassador',
+    organization: 'OnePlus',
+    period: 'Present',
+    role: 'Community & Campus Presence',
+    description:
+      'Representing OnePlus on campus and in community forums — campaigns, creator work (including AI-generated gaming avatars), and conversations that connect students to the brand.',
+    achievement: 'Selected among ~100 OnePlus Student Ambassadors nationwide.',
     iconType: 'event',
-    tags: ['NVIDIA NIM', 'LangGraph', 'Multi-Agent', 'AutoOps', 'Llama Models']
+    tags: ['OnePlus', 'Campus Community', 'Brand Campaigns']
   },
   {
-    id: 'exp-redrob',
-    title: 'India.Runs Systems Developer',
-    organization: 'India.Runs Hackathon (Ongoing / Active)',
-    period: '2026',
-    role: 'Systems Developer & Partner',
-    description: 'Coordinating with team "Future AI Builders" to program Redrob Truth Engine, targeting candidate credential credibility checks automatically.',
-    achievement: 'Actively designing semantic truth validation matrices and onboarding recruitment flows.',
+    id: 'exp-unstop',
+    title: 'Campus Champion',
+    organization: 'Unstop',
+    period: 'Present',
+    role: 'Campus Outreach',
+    description:
+      'Handling Unstop Campus Champion responsibilities — connecting students to competitions, opportunities, and campus tech activity.',
+    achievement: 'Selected Campus Champion; owning campus-facing outreach.',
     iconType: 'event',
-    tags: ['AI Verification', 'Truth Engine', 'Workflow Innovation', 'Python']
-  },
-  {
-    id: 'exp-makers',
-    title: 'Core Hardware Builder',
-    organization: 'Makers Arena 2.0 (Coimbatore)',
-    period: '2026',
-    role: 'Avionics Firmware developer',
-    description: 'Assembled, coded, and test-flew an ESP32 microsecond drone system in partnership with Coimbatore engineering specialists.',
-    achievement: 'Integrated gyro interrupt routines and PID motor leveling controllers successfully in C++.',
-    iconType: 'event',
-    tags: ['Makers Arena 2.0', 'ESP32 Code', 'Drone Telemetry', 'MPU6050 Gyro']
-  },
-  {
-    id: 'exp-delegate',
-    title: 'Invited Delegate / Delegate',
-    organization: 'Microsoft Build & Google I/O Extended',
-    period: '2026',
-    role: 'Community Technology Delegate',
-    description: 'Selected to participate in global community actions across major cities including Nepal, Delhi, Mumbai, Visakhapatnam, Coimbatore, and Bangalore.',
-    achievement: 'Dived into Google Build with AI, deep LLM deployment pipelines, and advanced microchips roadmap.',
-    iconType: 'event',
-    tags: ['Microsoft Build 2026', 'Google I/O 2026', 'Build with AI', 'Emerging Tech']
+    tags: ['Unstop', 'Campus Champion', 'Student Outreach']
   },
   {
     id: 'exp-education',
-    title: 'B.Tech - Electronics & Communication Engineering',
-    organization: 'Sreenidhi Institute of Science and Technology (SNIST)',
-    period: '2025 - 2029 (Expected)',
+    title: 'B.Tech — Electronics & Communication Engineering',
+    organization: 'Anurag University, Hyderabad',
+    period: '2026 – 2030 (Expected)',
     role: 'Undergraduate ECE Student',
-    description: 'Rigorous engineering study focusing on analog setups, digital fundamentals, engineering mathematics, sensor inputs, and programming logics.',
-    achievement: 'Current Status: First Year – First Semester. Maintaining focused academic progression aligning software-hardware workflows.',
+    description:
+      'First-year ECE: electronics fundamentals, problem solving, engineering mathematics, programming, and digital basics — paired with production AI and internships.',
+    achievement: 'First-year ECE. Hardware-software path in parallel with Nimblize and Bluestock Fintech.',
     iconType: 'education',
-    tags: ['ECE Core', 'SNIST', 'Basic Electronics', 'Problem Solving', 'Engineering Math']
+    tags: ['ECE', 'Anurag University', 'Embedded', 'Programming']
+  }
+];
+
+export const LEADERSHIP_DATA: LeadershipRole[] = [
+  {
+    id: 'lead-oneplus',
+    title: 'OnePlus Student Ambassador',
+    organization: 'OnePlus',
+    period: 'Present',
+    description:
+      'Campus and community representation — forum intros, campaign content, and student-facing brand work. Goal: speak clearly, organize people, and build a community around technology.',
+    tags: ['Ambassador', 'Community', 'Public Presence']
+  },
+  {
+    id: 'lead-unstop',
+    title: 'Unstop Campus Champion',
+    organization: 'Unstop',
+    period: 'Present',
+    description:
+      'Campus champion for competitions and opportunity discovery. Connecting classmates to platforms where they can ship and compete.',
+    tags: ['Campus Champion', 'Outreach']
   }
 ];
 
 export const SKILLS_DATA: SkillCategory[] = [
   {
+    id: 'ai-systems',
+    title: 'AI & AUTOMATION',
+    skills: [
+      { name: 'LangGraph & Multi-Agent Orchestration', level: 88, category: 'ai' },
+      { name: 'RAG / GraphRAG / pgvector', level: 86, category: 'ai' },
+      { name: 'RAGAS Evaluation', level: 78, category: 'ai' },
+      { name: 'Presidio PII Filtering', level: 80, category: 'ai' },
+      { name: 'Python', level: 85, category: 'ai' }
+    ]
+  },
+  {
     id: 'programming-dev',
-    title: 'PROGRAMMING & DEVELOPMENT',
+    title: 'PROGRAMMING & PLATFORMS',
     skills: [
-      { name: 'Python (Beginner/Intermediate)', level: 85, category: 'ai' },
-      { name: 'C Programming (Beginner)', level: 75, category: 'hardware' },
-      { name: 'HTML & CSS Developer', level: 90, category: 'frontend' },
-      { name: 'Front-End Development Fundamentals', level: 88, category: 'frontend' },
-      { name: 'JavaScript & TypeScript', level: 82, category: 'frontend' }
+      { name: 'JavaScript & TypeScript', level: 82, category: 'frontend' },
+      { name: 'React & Tailwind', level: 88, category: 'frontend' },
+      { name: 'FastAPI & PostgreSQL', level: 80, category: 'backend' },
+      { name: 'Redis Queues & Docker', level: 78, category: 'backend' },
+      { name: 'C / Embedded Basics', level: 75, category: 'hardware' }
     ]
   },
   {
-    id: 'tools-platforms',
-    title: 'TOOLS & PLATFORMS',
+    id: 'tools-cloud',
+    title: 'TOOLS, DATA & CLOUD',
     skills: [
-      { name: 'Visual Studio Code & Git/GitHub', level: 92, category: 'frontend' },
-      { name: 'Microsoft Office Suite Services', level: 85, category: 'frontend' },
-      { name: 'Google Workspace Ecosystem', level: 90, category: 'backend' },
-      { name: 'CRM & Customer Support Tools', level: 88, category: 'backend' }
-    ]
-  },
-  {
-    id: 'learning-vectors',
-    title: 'AREAS CURRENTLY LEARNING',
-    skills: [
-      { name: 'Artificial Intelligence Fundamentals', level: 80, category: 'ai' },
-      { name: 'Data Analytics & Statistics', level: 78, category: 'ai' },
-      { name: 'Electronics Fundamentals (Circuitry)', level: 84, category: 'hardware' },
-      { name: 'Embedded Systems Basics & Sensors', level: 82, category: 'hardware' },
-      { name: 'Communication Systems & Logic', level: 75, category: 'hardware' }
+      { name: 'Git / GitHub & VS Code', level: 92, category: 'frontend' },
+      { name: 'Power BI Dashboards', level: 84, category: 'backend' },
+      { name: 'Microsoft Fabric (Ontology)', level: 72, category: 'ai' },
+      { name: 'AWS Fundamentals (EC2, S3, IAM, Lambda, RDS)', level: 70, category: 'backend' },
+      { name: 'Electronics & Sensors', level: 82, category: 'hardware' }
     ]
   }
 ];
 
 export const CORE_STRENGTHS_DATA = [
-  'Strong Communication Skills',
-  'Analytical & Problem Solving',
-  'Customer Relationship Management',
-  'Team Collaboration & Leadership',
-  'Adaptability & Quick Learning',
-  'Time Management & Focus',
-  'Critical Thinking Logic',
-  'Professional Mindset & Attitude'
+  'Multi-Agent System Design',
+  'Evidence-Gated Retrieval',
+  'Embedded / IoT Prototyping',
+  'Community Leadership',
+  'Clear Technical Communication',
+  'Shipping Under Constraints',
+  'Analytical Problem Solving',
+  'Ownership Mindset'
 ];
 
 export interface FutureIdea {
@@ -329,19 +405,21 @@ export const FUTURE_INSIGHTS_DATA: FutureIdea[] = [
     title: 'Advanced Agent Memory',
     category: 'mem',
     titleLabel: 'RAG Context Retention',
-    shortDesc: 'Stateful long-term recall and deep chronological interaction history saving across sessions.',
-    longDesc: 'Formulating recursive graph network indexes that map user feedback, interaction timelines, and contextual nuances. Ensures agent workflows never drop conversational context or project histories.',
+    shortDesc: 'Long-term recall across Pramāṇa and Nimblize sessions — chronological graphs, not lost chat.',
+    longDesc:
+      'Recursive graph indexes mapping feedback, timelines, and project nuance so enterprise agents never drop provenance or conversation state.',
     iconName: 'Brain',
     expectedLaunch: 'Q4 2026',
-    stack: 'Mem0, LangGraph, NebulaGraph'
+    stack: 'Mem0, LangGraph, Knowledge Graph'
   },
   {
     id: 'self-healing',
     title: 'Self-Healing Workflows',
     category: 'self',
-    titleLabel: 'Adaptive Automated Fault Fixes',
-    shortDesc: 'Autonomous diagnostics and loop correction protocols in continuous integration stages.',
-    longDesc: 'A micro-agent watching compile steps and pipeline executions. Upon code crash or data response deviations, the auto-recovery agent reads the traceback log, re-prompts the AI builder with exact boundaries, and hot-fixes runtime memory.',
+    titleLabel: 'Adaptive Fault Fixes',
+    shortDesc: 'Watchdog agents that read traceback, re-prompt builders, and hot-fix pipeline faults.',
+    longDesc:
+      'A micro-agent on compile and queue steps. On crash or drift, it binds the log, re-prompts with boundaries, and patches runtime — the AutoOps / Nimblize ops layer.',
     iconName: 'ShieldAlert',
     expectedLaunch: 'Q1 2027',
     stack: 'LangChain, Cron, Docker Health'
@@ -350,9 +428,10 @@ export const FUTURE_INSIGHTS_DATA: FutureIdea[] = [
     id: 'adaptive-agents',
     title: 'Adaptive Learning Agents',
     category: 'adapt',
-    titleLabel: 'Reinforcement Tuning Platform',
-    shortDesc: 'Automated policy alignment optimizing user actions inside visual workflows dynamically over time.',
-    longDesc: 'Integrating lightweight Proximal Policy Optimization (PPO) and Direct Preference Optimization (DPO) mechanisms directly on edge pipelines to train agent responses relative to local customer decisions.',
+    titleLabel: 'Preference Tuning',
+    shortDesc: 'Local policy alignment from operator decisions inside visual workflows.',
+    longDesc:
+      'Lightweight DPO/PPO-style loops on edge pipelines so Nimblize-class agents improve from real user choices, not static prompts.',
     iconName: 'Sparkles',
     expectedLaunch: 'Q2 2027',
     stack: 'PyTorch, RLHF, HuggingFace'
@@ -361,125 +440,131 @@ export const FUTURE_INSIGHTS_DATA: FutureIdea[] = [
     id: 'ent-marketplace',
     title: 'Enterprise Marketplace Integrations',
     category: 'market',
-    titleLabel: 'Universal API Interoperability',
-    shortDesc: 'Modular marketplace enabling enterprise plugins (CRM, ITSM, ERP) integration in clicking actions.',
-    longDesc: 'Standardizing a universal gateway abstraction layer to let AutoOps plug seamlessly into major cloud assets like Salesforce, Jira, HubSpot, and ServiceNow with secure sandbox credentials.',
+    titleLabel: 'Universal API Layer',
+    shortDesc: 'Plugin gates into CRM, ITSM, and ERP without rewriting the agent core.',
+    longDesc:
+      'Gateway abstraction so AutoOps and Nimblize plug into Salesforce, Jira, HubSpot, and ServiceNow with sandboxed credentials.',
     iconName: 'Zap',
     expectedLaunch: 'Q3 2027',
     stack: 'Node Gateway, OpenTelemetry'
   },
   {
     id: 'sec-compliance',
-    title: 'Enhanced Security & Compliance',
+    title: 'Evidence & Compliance Guardrails',
     category: 'sec',
-    titleLabel: 'Trust, Guardrails, & ISO Align',
-    shortDesc: 'Real-time semantic guardrails block sensitive leaks (PII) before LLM egress gateways.',
-    longDesc: 'Developing specialized localized security interceptors that verify token outputs against core privacy requirements, protecting candidate resumes, account numbers, and internal company schemas.',
+    titleLabel: 'Pramāṇa Governance Path',
+    shortDesc: 'Semantic PII interceptors and refusal when the evidence graph is thin.',
+    longDesc:
+      'Localized interceptors on token egress — resumes, account numbers, internal schemas — plus Pramāṇa-style refuse-over-hallucinate.',
     iconName: 'Lock',
     expectedLaunch: 'Q4 2026',
-    stack: 'Llama Guard, NeMo Guardrails'
+    stack: 'Llama Guard, NeMo Guardrails, GraphRAG'
   }
 ];
 
 export const LAB_DEVICES_DATA: LabDevice[] = [
   {
-    id: 'neural-processor',
-    name: 'Neural Processing Unit',
+    id: 'pramana-core',
+    name: 'Pramāṇa Governance Core',
     type: 'processor',
-    label: 'AI Chip (T-Lens v2)',
-    shortDesc: 'Custom AI silicon driving TalentLens, LLMs, and dense vector matching.',
-    longDesc: 'The neural chip manages semantic ranking routines, parsing CV documents using retrieval patterns. It executes pgvector lookups and controls RAG agent memory streams.',
+    label: 'Evidence Gate (Pramāṇa)',
+    shortDesc: 'Authorization-before-retrieval silicon for enterprise GraphRAG.',
+    longDesc:
+      'Privacy Gate, authorization, Hybrid GraphRAG, draft, verify, fact-check, govern. Refuses when evidence is insufficient. Trust scores, audit logs, provenance.',
     color: 'emerald',
     glowColor: '#10b981',
     iconName: 'Cpu',
     stats: {
-      achievement: 'TalentLens Core Engine',
-      impact: 'Ranks CV documents in <5s',
-      stack: 'Python, pgvector, LangChain'
+      achievement: 'Flagship multi-agent system',
+      impact: 'Refuse > hallucinate',
+      stack: 'LangGraph, GraphRAG, RBAC'
     },
-    technologies: ['LangChain', 'Llama 3', 'FastAPI', 'Supabase', 'pgvector'],
-    coordinates: { x: 50, y: 50 } // Center of the board!
+    technologies: ['LangGraph', 'Hybrid GraphRAG', 'RBAC/ABAC', 'FactCheck', 'Governance'],
+    coordinates: { x: 50, y: 50 }
   },
   {
-    id: 'crisis-terminal',
-    name: 'CrisisOS Command Terminal',
+    id: 'nimblize-terminal',
+    name: 'Nimblize Intelligence Terminal',
     type: 'terminal',
-    label: 'CrisisOS Command Grid',
-    shortDesc: 'HackPrix S2 winner terminal directing automated incident routing.',
-    longDesc: 'Our central terminal is built to coordinate rescue groups during severe emergencies. Includes simulated process tables, terminal output logs, and continuous WebSocket checks.',
+    label: 'Nimblize AI Intern Stack',
+    shortDesc: 'Internship command surface — competitor intel agents in production path.',
+    longDesc:
+      'LangGraph + RAG + pgvector + RAGAS + Redis queues + Presidio. This node is the professional internship, not a lab toy.',
     color: 'cyan',
     glowColor: '#06b6d4',
     iconName: 'Terminal',
     stats: {
-      achievement: 'HackPrix S2 1st Place',
-      impact: 'WebSocket routing latency <5ms',
-      stack: 'FastAPI, React, WebSockets, GPT'
+      achievement: 'AI & Automation Intern',
+      impact: 'Eval + PII + queues in-path',
+      stack: 'LangGraph, FastAPI, Redis'
     },
-    technologies: ['React', 'FastAPI', 'WebSockets', 'GPT-4 Dispatcher', 'Tailwind'],
+    technologies: ['LangGraph', 'RAGAS', 'Presidio', 'Redis', 'Docker'],
     coordinates: { x: 18, y: 25 }
   },
   {
     id: 'arduino-workbench',
-    name: 'Arduino Embedded System Controller',
+    name: 'Arduino Embedded Controller',
     type: 'arduino',
     label: 'Smart Sensor Node',
-    shortDesc: 'Hardware micro-controller connecting pulse sensors and safety bracelets.',
-    longDesc: 'A portable microcontroller interfacing analogue sensors to standard wireless endpoints, broadcasting GPS coordinates and biometric state alerts over the ESP8266 firmware layers.',
+    shortDesc: 'MCU workbench for ranging, alerts, and wearable concepts.',
+    longDesc:
+      'Analogue sensors to firmware endpoints — HC-SR04 ranging, buzzer/LED alerts, GPS panic-band architecture studies.',
     color: 'blue',
     glowColor: '#3b82f6',
     iconName: 'Cpu',
     stats: {
-      achievement: 'SNIST Hardware Prototype',
-      impact: 'Analogue vital readout in 2ms',
-      stack: 'C++, Arduino Uno, HC-SR04 Sensor'
+      achievement: 'Hardware prototype node',
+      impact: 'Ranging + alert loops',
+      stack: 'C++, Arduino, HC-SR04'
     },
-    technologies: ['Arduino', 'C++', 'HC-SR04 Sensor', 'Buzzers & LEDs', 'I2C SPI Bus'],
+    technologies: ['Arduino', 'C++', 'HC-SR04', 'I2C / SPI'],
     coordinates: { x: 82, y: 25 }
   },
   {
-    id: 'esp32-drone',
-    name: 'ESP32 Drone Hover Core',
+    id: 'aero-dot',
+    name: 'Aero Dot Flight Controller',
     type: 'satellite',
-    label: 'ESP32 Drone Avionics',
-    shortDesc: 'Collaborative aerial drone engineered at Coimbatore with precise PID loop firmware.',
-    longDesc: 'Assembled and calibrated alongside my engineering team at Makers Arena 2.0 in Coimbatore (2026). Features real-time attitude heading telemetry, precise gyro calculations, and microsecond ESC pulse control loops.',
+    label: 'ESP32 Avionics',
+    shortDesc: 'ToF + PID self-leveling drone firmware on ESP32.',
+    longDesc:
+      'Attitude telemetry, gyro fusion, ToF proximity, microsecond ESC pulses, PID hold. Embedded ECE in the loop.',
     color: 'purple',
     glowColor: '#a855f7',
     iconName: 'Radio',
     stats: {
-      achievement: 'Makers Arena 2026 Drone',
-      impact: 'Balanced self-leveling attitude loops',
-      stack: 'C++, ESP32 Core, Gyro Core Interrupts'
+      achievement: 'Aero Dot avionics',
+      impact: 'Closed-loop PID + ToF',
+      stack: 'ESP32, C++, PID'
     },
-    technologies: ['Makers Arena 2.0', 'ESP32 RTOS', 'PID Feedback', 'Gyro Interfacing'],
+    technologies: ['ESP32', 'PID', 'ToF', 'Gyro Interrupts'],
     coordinates: { x: 18, y: 75 }
   },
   {
     id: 'server-rack',
-    name: 'Cloud Database Server Rack',
+    name: 'Cloud & Queue Rack',
     type: 'server',
-    label: 'Supabase Server Stack',
-    shortDesc: 'Redundant backend server managing pgvector schemas and API gateways.',
-    longDesc: 'Multi-threaded cloud stack powering the persistent database states for all projects. Features continuous service checks, live server logs, and automated Dockerized server deployments.',
+    label: 'API + Vector Store',
+    shortDesc: 'FastAPI, Postgres/pgvector, Redis, Docker — the intern runtime.',
+    longDesc:
+      'Persistent state and job queues for Nimblize and related agents. Service checks, logs, containerized deploys.',
     color: 'indigo',
     glowColor: '#6366f1',
     iconName: 'Database',
     stats: {
-      achievement: 'Enterprise Storage Grid',
-      impact: '99.99% database query uptime',
-      stack: 'PostgreSQL, Supabase, Vercel, FastAPI'
+      achievement: 'Production-shaped backend',
+      impact: 'Queues + vectors online',
+      stack: 'PostgreSQL, Redis, FastAPI'
     },
-    technologies: ['Supabase Serverless', 'PostgreSQL', 'FastAPI Rest', 'Docker Container'],
+    technologies: ['FastAPI', 'pgvector', 'Redis', 'Docker'],
     coordinates: { x: 82, y: 75 }
   }
 ];
 
 export const MISSION_STATS = {
-  currentMission: 'Orchestrating AI Agents & Hardware Cores',
+  currentMission: 'AI & Automation at Nimblize · ECE at Anurag',
   status: 'ACTIVE',
-  projectsCount: '09+',
-  hackathonsCount: '05+',
-  techCount: '18+',
+  projectsCount: '12+',
+  internshipsCount: '02',
+  techCount: '20+',
   uptime: '99.98%'
 };
-

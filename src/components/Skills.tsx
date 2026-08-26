@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { Layers, Terminal, Sparkles, Server, Zap, Gamepad2, Award } from 'lucide-react';
-import { SKILLS_DATA } from '../data/portfolioData';
+import { SKILLS_DATA, CORE_STRENGTHS_DATA } from '../data/portfolioData';
 import NextSectionButton from './NextSectionButton';
 
 export default function Skills() {
@@ -43,11 +43,11 @@ export default function Skills() {
             <Gamepad2 className="h-3.5 w-3.5" />
             <span>PROGRESSION MAP</span>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-mono">
-            SKILLS LEVEL PROGRESSION
+          <h2 className="text-3xl font-extrabold tracking-tight text-white md:text-5xl font-display">
+            Skills
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-xs text-neutral-400 font-sans">
-            Scroll to map through game levels. Level up your architectures from central neural processing down to custom metal boards.
+            Multi-agent AI, intern production stack, and ECE hardware — honest levels, not inflated bars.
           </p>
         </div>
 
@@ -173,8 +173,19 @@ export default function Skills() {
 
         </div>
 
+        <div className="mt-12 flex flex-wrap justify-center gap-2">
+          {CORE_STRENGTHS_DATA.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-neutral-800 bg-neutral-950/60 px-3 py-1.5 text-[11px] text-neutral-300"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+
         {/* Dynamic Navigation Flow Trigger */}
-        <NextSectionButton nextSectionId="projects" label="QUERY DISPATCHED SYSTEMS" />
+        <NextSectionButton nextSectionId="projects" label="VIEW PROJECTS" />
       </div>
     </section>
   );
