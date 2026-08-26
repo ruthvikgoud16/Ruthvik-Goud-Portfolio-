@@ -23,6 +23,7 @@ export interface Experience {
   iconType: 'education' | 'work' | 'event' | 'trophy';
   tags: string[];
   featured?: boolean;
+  logo: string;
 }
 
 export interface LeadershipRole {
@@ -32,6 +33,8 @@ export interface LeadershipRole {
   period: string;
   description: string;
   tags: string[];
+  logo?: string;
+  image?: string;
 }
 
 export interface SkillItem {

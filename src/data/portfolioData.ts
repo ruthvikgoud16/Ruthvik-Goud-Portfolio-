@@ -262,6 +262,7 @@ export const EXPERIENCES_DATA: Experience[] = [
     period: 'May 2026 – Present',
     role: 'Primary Internship',
     featured: true,
+    logo: '/media/logos/nimblize.svg',
     description:
       'Building AI product-intelligence workflows with FastAPI, LangGraph, PostgreSQL, Redis, and Gemini. Designed RAG pipelines with semantic retrieval and vector embeddings, plus backend APIs for multi-agent orchestration, prompt evaluation, telemetry, and automation.',
     achievement:
@@ -275,6 +276,7 @@ export const EXPERIENCES_DATA: Experience[] = [
     organization: 'Bluestock Fintech',
     period: '2026 – Present',
     role: 'Analytics & Reporting',
+    logo: '/media/logos/bluestock.png',
     description:
       'Analyzing business and financial datasets for actionable insights. Cleaning, transforming, and validating structured data; building SQL reports and dashboards; improving reporting accuracy through systematic validation.',
     achievement: 'Delivered validated reports and dashboards on live business data.',
@@ -287,6 +289,7 @@ export const EXPERIENCES_DATA: Experience[] = [
     organization: 'OnePlus',
     period: 'Present',
     role: 'Community & Campus Presence',
+    logo: '/media/logos/oneplus.svg',
     description:
       'Representing OnePlus on campus and in community forums — campaigns, creator work (including AI-generated gaming avatars), and conversations that connect students to the brand.',
     achievement: 'Selected among ~100 OnePlus Student Ambassadors nationwide.',
@@ -299,6 +302,7 @@ export const EXPERIENCES_DATA: Experience[] = [
     organization: 'Unstop',
     period: 'Present',
     role: 'Campus Outreach',
+    logo: '/media/logos/unstop.png',
     description:
       'Handling Unstop Campus Champion responsibilities — connecting students to competitions, opportunities, and campus tech activity.',
     achievement: 'Selected Campus Champion; owning campus-facing outreach.',
@@ -311,6 +315,7 @@ export const EXPERIENCES_DATA: Experience[] = [
     organization: 'Anurag University, Hyderabad',
     period: '2026 – 2030 (Expected)',
     role: 'Undergraduate ECE Student',
+    logo: '/media/logos/anurag.svg',
     description:
       'First-year ECE: electronics fundamentals, problem solving, engineering mathematics, programming, and digital basics — paired with production AI and internships.',
     achievement: 'First-year ECE. Hardware-software path in parallel with Nimblize and Bluestock Fintech.',
@@ -327,7 +332,8 @@ export const LEADERSHIP_DATA: LeadershipRole[] = [
     period: 'Present',
     description:
       'Campus and community representation — forum intros, campaign content, and student-facing brand work. Goal: speak clearly, organize people, and build a community around technology.',
-    tags: ['Ambassador', 'Community', 'Public Presence']
+    tags: ['Ambassador', 'Community', 'Public Presence'],
+    logo: '/media/logos/oneplus.svg'
   },
   {
     id: 'lead-unstop',
@@ -336,8 +342,75 @@ export const LEADERSHIP_DATA: LeadershipRole[] = [
     period: 'Present',
     description:
       'Campus champion for competitions and opportunity discovery. Connecting classmates to platforms where they can ship and compete.',
-    tags: ['Campus Champion', 'Outreach']
+    tags: ['Campus Champion', 'Outreach'],
+    logo: '/media/logos/unstop.png'
+  },
+  {
+    id: 'lead-react-hyd',
+    title: 'Assistant Coordinator',
+    organization: 'React Hyderabad',
+    period: 'Present',
+    description:
+      'Helping run React Hyderabad as Assistant Coordinator — meetups, community ops, and keeping the city’s React builders connected.',
+    tags: ['Community', 'React', 'Hyderabad'],
+    logo: '/media/logos/react-hyderabad.svg'
+  },
+  {
+    id: 'lead-startup-smash',
+    title: 'Hyderabad builder rooms',
+    organization: 'Startup Smash · StartupParty',
+    period: '2026',
+    description:
+      'In the room at Startup Smash Hyderabad — invite-only founder energy, not a spectator seat. This is how I learn the product side of engineering: sit with people who ship.',
+    tags: ['Community', 'Startups', 'Hyderabad'],
+    image: '/media/life/startup-smash.jpg'
   }
+];
+
+export const LIFE_FRAMES = [
+  {
+    id: 'portrait',
+    src: '/media/portrait/ruthvik.jpg',
+    alt: 'Ruthvik Goud, Hyderabad',
+    title: 'This is Ruthvik',
+    note: 'Hyderabad. Off-campus, still on the same loop — build, ride, reset.',
+  },
+  {
+    id: 'gym',
+    src: '/media/life/gym.jpg',
+    alt: 'Ruthvik at the gym',
+    title: 'Discipline off the keyboard',
+    note: 'Same rule as the agents: if the loop is weak, you do not ship. Gym is the analog version.',
+  },
+  {
+    id: 'builder',
+    src: '/media/life/builder-floor.jpg',
+    alt: 'Building on the floor with a hiring-intelligence prototype on screen',
+    title: 'Human potential on the laptop',
+    note: 'Live floor energy — “The Future of Hiring is Human Potential Intelligence” on screen. TalentLens / verification work belongs in rooms like this, not only in GitHub READMEs.',
+  },
+  {
+    id: 'campus',
+    src: '/media/campus/anurag-aerial.jpg',
+    alt: 'Anurag University campus aerial',
+    title: 'Anurag University',
+    note: 'B.Tech ECE, 2026–2030. First year. Hardware in class, agents after class.',
+  },
+  {
+    id: 'blocks',
+    src: '/media/campus/anurag-blocks.jpg',
+    alt: 'E and F blocks at Anurag University',
+    title: 'E & F Block',
+    note: 'The physical campus — not a stock skyline.',
+  },
+];
+
+export const COMMUNITIES_DATA = [
+  { id: 'react-hyd', name: 'React Hyderabad', role: 'Assistant Coordinator', logo: '/media/logos/react-hyderabad.svg' },
+  { id: 'aic-raise', name: 'AIC RAISE', role: 'Member', logo: '/media/logos/aic-raise.png' },
+  { id: 'stackflow', name: 'StackFlow', role: 'Member', logo: '/media/logos/stackflow.png' },
+  { id: 'gdg-south', name: 'Google Developers South India', role: 'Member', logo: '/media/logos/gdg-dots.svg' },
+  { id: 'oneplus', name: 'OnePlus', role: 'Student Ambassador', logo: '/media/logos/oneplus.svg' },
 ];
 
 export const SKILLS_DATA: SkillCategory[] = [
@@ -345,10 +418,10 @@ export const SKILLS_DATA: SkillCategory[] = [
     id: 'ai-systems',
     title: 'AI & AUTOMATION',
     skills: [
-      { name: 'LangGraph & Multi-Agent Orchestration', level: 88, category: 'ai' },
-      { name: 'RAG / GraphRAG / pgvector', level: 86, category: 'ai' },
-      { name: 'RAGAS Evaluation', level: 78, category: 'ai' },
-      { name: 'Presidio PII Filtering', level: 80, category: 'ai' },
+      { name: 'LangGraph', level: 88, category: 'ai' },
+      { name: 'GraphRAG', level: 86, category: 'ai' },
+      { name: 'RAGAS', level: 78, category: 'ai' },
+      { name: 'Presidio', level: 80, category: 'ai' },
       { name: 'Python', level: 85, category: 'ai' }
     ]
   },
@@ -356,22 +429,22 @@ export const SKILLS_DATA: SkillCategory[] = [
     id: 'programming-dev',
     title: 'PROGRAMMING & PLATFORMS',
     skills: [
-      { name: 'JavaScript & TypeScript', level: 82, category: 'frontend' },
-      { name: 'React & Tailwind', level: 88, category: 'frontend' },
-      { name: 'FastAPI & PostgreSQL', level: 80, category: 'backend' },
-      { name: 'Redis Queues & Docker', level: 78, category: 'backend' },
-      { name: 'C / Embedded Basics', level: 75, category: 'hardware' }
+      { name: 'TypeScript', level: 82, category: 'frontend' },
+      { name: 'React', level: 88, category: 'frontend' },
+      { name: 'FastAPI', level: 80, category: 'backend' },
+      { name: 'Redis · Docker', level: 78, category: 'backend' },
+      { name: 'C / Embedded', level: 75, category: 'hardware' }
     ]
   },
   {
     id: 'tools-cloud',
     title: 'TOOLS, DATA & CLOUD',
     skills: [
-      { name: 'Git / GitHub & VS Code', level: 92, category: 'frontend' },
-      { name: 'Power BI Dashboards', level: 84, category: 'backend' },
-      { name: 'Microsoft Fabric (Ontology)', level: 72, category: 'ai' },
-      { name: 'AWS Fundamentals (EC2, S3, IAM, Lambda, RDS)', level: 70, category: 'backend' },
-      { name: 'Electronics & Sensors', level: 82, category: 'hardware' }
+      { name: 'Git', level: 92, category: 'frontend' },
+      { name: 'Power BI', level: 84, category: 'backend' },
+      { name: 'Fabric', level: 72, category: 'ai' },
+      { name: 'AWS', level: 70, category: 'backend' },
+      { name: 'Sensors', level: 82, category: 'hardware' }
     ]
   }
 ];

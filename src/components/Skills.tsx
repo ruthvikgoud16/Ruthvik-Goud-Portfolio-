@@ -1,32 +1,44 @@
-import { SKILLS_DATA } from '../data/portfolioData';
+import { COMMUNITIES_DATA, SKILLS_DATA } from '../data/portfolioData';
+import ParticleNetwork from './ParticleNetwork';
+import OrgLogo from './OrgLogo';
 
 export default function Skills() {
   return (
-    <section className="mt-24 px-5 md:px-10">
-      <p className="text-xs uppercase tracking-[0.22em] text-[#f3efe6]/40">Be real * Be technical # Be bold ™</p>
-      <h2 className="mt-6 font-display text-4xl font-semibold tracking-tight md:text-6xl">
-        Skill
-        <br />
-        sets
-      </h2>
-      <p className="mt-6 max-w-xl text-sm leading-relaxed text-[#f3efe6]/55">
-        End-to-end work across multi-agent AI, backend systems, and ECE hardware — not just slides.
-      </p>
-      <div className="mt-16 grid gap-12 md:grid-cols-3">
-        {SKILLS_DATA.map((cat, i) => (
-          <div key={cat.id} className="border-t border-white/10 pt-6">
-            <p className="text-xs text-[#f3efe6]/35">({String(i + 1).padStart(2, '0')})</p>
-            <h3 className="mt-3 font-display text-2xl font-semibold">{cat.title.toLowerCase()}</h3>
-            <ol className="mt-6 space-y-3 text-sm text-[#f3efe6]/65">
-              {cat.skills.map((s, n) => (
-                <li key={s.name} className="flex gap-3">
-                  <span className="text-[#f3efe6]/30">{n + 1}</span>
-                  {s.name}
-                </li>
-              ))}
-            </ol>
-          </div>
-        ))}
+    <section id="skills" className="relative overflow-hidden border-t border-black/10 bg-[#070707] px-5 py-16 text-[#efe8dc] md:px-10">
+      <ParticleNetwork />
+      <div className="pcb-grid pointer-events-none absolute inset-0 opacity-40" />
+      <div className="relative z-10">
+        <h2 className="font-display text-4xl md:text-5xl">Skills</h2>
+        <div className="mt-8 grid gap-8 md:grid-cols-3">
+          {SKILLS_DATA.map((cat) => (
+            <div key={cat.id}>
+              <p className="text-[10px] uppercase tracking-[0.18em] text-cyan-300/70">{cat.title}</p>
+              <ul className="mt-3 space-y-2">
+                {cat.skills.map((s) => (
+                  <li key={s.name}>
+                    <p className="text-sm font-medium">{s.name}</p>
+                    <span className="mt-1 block h-[2px] w-full overflow-hidden bg-white/10">
+                      <span className="skill-fill block h-full bg-cyan-400/80" style={{ width: `${s.level}%` }} />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-14 text-[10px] uppercase tracking-[0.18em] text-white/40">Currently part of</p>
+        <ul className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-5">
+          {COMMUNITIES_DATA.map((c) => (
+            <li key={c.id} className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+              <OrgLogo src={c.logo} alt={c.name} />
+              <span>
+                <span className="block text-xs font-medium leading-tight">{c.name}</span>
+                <span className="text-[10px] text-white/45">{c.role}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
