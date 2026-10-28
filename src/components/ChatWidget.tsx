@@ -24,7 +24,7 @@ export default function ChatWidget() {
     {
       id: 'welcome',
       sender: 'assistant',
-      text: 'Ask about Nimblize, Anurag University, Pramana, or how to reach Ruthvik. Out-of-scope questions go to his email.',
+      text: 'Ask about Sydon AI, Nimblize, Bluestock, Anurag University, or Pramana. Out-of-scope questions go to his email.',
     },
   ]);
 

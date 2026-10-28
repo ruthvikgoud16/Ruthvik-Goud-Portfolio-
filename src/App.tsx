@@ -28,7 +28,7 @@ export default function App() {
               This is Ruthvik
             </span>
           </button>
-          <p className="hidden text-xs uppercase tracking-[0.18em] text-white/80 md:block">AI Engineering Intern</p>
+          <p className="hidden text-xs uppercase tracking-[0.18em] text-white/80 md:block">AI Engineer</p>
           <nav className="flex items-center gap-5 text-xs uppercase tracking-[0.16em] text-white">
             <button type="button" className="hidden md:inline" onClick={() => go('work')}>
               Work

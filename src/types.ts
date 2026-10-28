@@ -24,6 +24,9 @@ export interface Experience {
   tags: string[];
   featured?: boolean;
   logo: string;
+  status?: 'incoming' | 'completed' | 'current';
+  projectUrl?: string;
+  image?: string;
 }
 
 export interface LeadershipRole {

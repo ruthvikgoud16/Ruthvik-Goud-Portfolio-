@@ -33,7 +33,7 @@ export default function Hero() {
         >
           I’m {PERSONAL_DETAILS.name},
           <br />
-          an AI Engineering Intern
+          an AI Engineer
           <br />
           based in Hyderabad.
         </motion.h1>
@@ -43,9 +43,14 @@ export default function Hero() {
           transition={{ delay: 0.28 }}
           className="mt-10 flex flex-wrap items-end justify-between gap-8"
         >
-          <p className="max-w-md text-sm leading-relaxed text-[#f3efe6]/70 md:text-base">
-            {PERSONAL_DETAILS.oneLiner}
-          </p>
+          <div className="max-w-md">
+            <p className="text-xs uppercase tracking-[0.16em] text-[#f3efe6]/80">
+              AI Engineer · Agentic AI · Multi-Agent Systems · RAG
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-[#f3efe6]/70 md:text-base">
+              {PERSONAL_DETAILS.oneLiner}
+            </p>
+          </div>
           <div className="text-left md:text-right">
             <p className="font-display text-5xl font-semibold tracking-tight">/ 2026 /</p>
             <p className="mt-2 text-xs uppercase tracking-[0.2em] text-[#f3efe6]/45">

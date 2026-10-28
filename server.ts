@@ -92,8 +92,9 @@ Ruthvik Goud Dossier details:
 - LINKEDIN: https://linkedin.com/in/ruthvikgoud16
 - GITHUB: https://github.com/ruthvikgoud16
 - EDUCATION: First Year ECE student at Anurag University, Hyderabad. B.Tech 2026-2030.
-- PRIMARY WORK: AI Engineering Intern at Nimblize (May 2026 – Present). Builds multi-agent product intelligence: FastAPI, LangGraph, PostgreSQL, Redis, Gemini, RAG, vector embeddings. This is his most important professional role.
-- SECONDARY WORK: Data Analyst Intern at Bluestock Fintech (Present). SQL reports, dashboards, data cleaning and validation.
+- INCOMING WORK: AI Engineer Intern at Sydon AI, starting 28 Oct 2026 for six months. Onboarding is not confirmed complete, so do not describe it as a current or completed job. Planned focus: retrieval connected to business data, document processing, source attribution, and answer reliability. Do not claim shipped features.
+- COMPLETED: AI & Automation Intern at Nimblize, started May 2026. End month is unknown. Explored competitor intelligence and recommendation workflows with FastAPI, LangGraph, PostgreSQL, Redis, RAG. Do not claim production metrics.
+- COMPLETED: Data Analyst Intern at Bluestock Fintech, year 2026 only. Mutual fund analytics: data processing, SQL, cleaning, dashboards. Exact months are unknown. Do not invent dates.
 - LEADERSHIP: OnePlus Student Ambassador (selected among ~100 nationwide); Unstop Campus Champion; Assistant Coordinator at React Hyderabad.
 - PHONE: +91 9392796458
 - FLAGSHIP PROJECTS:
@@ -123,7 +124,7 @@ SCOPE RULES:
       console.error("Gemini Chat API Error:", e);
       // Fallback with friendly message if API is offline or key is missing
       res.json({
-        reply: `Telemetry interrupted. Local cache: Ruthvik is an ECE student at Anurag University and AI & Automation Intern at Nimblize. LinkedIn: linkedin.com/in/ruthvikgoud16. Ask about Pramāṇa or his Nimblize internship.`,
+        reply: `Ruthvik is an ECE student at Anurag University and an incoming AI Engineer Intern at Sydon AI (starts 28 Oct 2026). Completed internships: Nimblize and Bluestock Fintech. LinkedIn: linkedin.com/in/ruthvikgoud16.`,
         status: "complete"
       });
     }

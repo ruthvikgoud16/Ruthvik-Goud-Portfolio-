@@ -11,15 +11,14 @@ export const PERSONAL_DETAILS = {
   website: 'https://ruthvikgoud.vercel.app',
   resumeUrl: '/resume.pdf',
   roles: [
-    'AI Engineering Intern @ Nimblize',
-    'Data Analyst Intern @ Bluestock Fintech',
+    'Incoming AI Engineer Intern @ Sydon AI',
+    'AI Engineer | Agentic AI | Multi-Agent Systems | RAG',
     'ECE Student @ Anurag University',
-    'OnePlus Student Ambassador',
-    'Multi-Agent AI Builder'
+    'OnePlus Student Ambassador'
   ],
   oneLiner:
-    'ECE student at Anurag University and AI Engineering Intern at Nimblize — building evidence-gated multi-agent systems, GraphRAG pipelines, and embedded IoT. Also a Data Analyst Intern at Bluestock Fintech.',
-  bio: 'I am a first-year Electronics and Communication Engineering student at Anurag University, Hyderabad. My primary work is as an AI Engineering Intern at Nimblize, where I design multi-agent product-intelligence systems with LangGraph, RAG, and production backends. I also intern at Bluestock Fintech as a Data Analyst and serve as a OnePlus Student Ambassador. I care about shipping systems that refuse when evidence is weak — not collecting titles.',
+    'AI engineer working on agentic systems, retrieval, and automation. Incoming AI Engineer Intern at Sydon AI. Previously an AI & Automation Intern at Nimblize and a Data Analyst Intern at Bluestock Fintech.',
+  bio: 'I am a first-year Electronics and Communication Engineering student at Anurag University, Hyderabad. I build intelligent systems across retrieval, orchestration, and evaluation. I am starting as an AI Engineer Intern at Sydon AI. Before that I worked as an AI & Automation Intern at Nimblize and a Data Analyst Intern at Bluestock Fintech. I care about answers that stay tied to evidence.',
   education: {
     degree: 'Bachelor of Technology (B.Tech) — Electronics and Communication Engineering',
     institution: 'Anurag University, Hyderabad',
@@ -68,19 +67,19 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'nimblize',
     title: 'Nimblize',
-    subtitle: 'AI & Automation Internship — Multi-Agent Competitor Intelligence',
+    subtitle: 'AI & Automation Internship — Competitor Intelligence',
     description:
-      'Production multi-agent platform for competitor intelligence and product recommendation, built during my Nimblize internship.',
+      'Internship work on competitor-intelligence and recommendation workflows: multi-agent orchestration, retrieval, and evaluation.',
     longDescription:
-      'Orchestrates LangGraph agents with RAG, pgvector, RAGAS evaluation, FastAPI, Redis queues, Presidio PII filtering, rate limiting, telemetry, and Docker. Built as intern work — not a throwaway prototype.',
+      'Explored LangGraph agents with RAG, pgvector, RAGAS-style evaluation, FastAPI, Redis queues, and Presidio-based PII filtering. This is the public internship codebase — not a claim that every planned component shipped to production.',
     category: 'ai',
     featured: true,
     tech: ['LangGraph', 'RAG', 'pgvector', 'RAGAS', 'FastAPI', 'Redis', 'Presidio', 'Docker'],
     github: 'https://github.com/ruthvikgoud16/nimblize',
     impactMetrics: [
-      'Primary internship product — AI & Automation at Nimblize',
-      'PII filtering, rate limits, and evaluation loops in the path',
-      'Queue-backed multi-agent orchestration'
+      'Internship codebase for competitor intelligence and recommendations',
+      'Retrieval, orchestration, and evaluation explored in the same stack',
+      'Public repo — no private customer data'
     ]
   },
   {
@@ -256,32 +255,53 @@ export const PROJECTS_DATA: Project[] = [
 
 export const EXPERIENCES_DATA: Experience[] = [
   {
-    id: 'exp-nimblize',
-    title: 'AI Engineering Intern',
-    organization: 'Nimblize',
-    period: 'May 2026 – Present',
-    role: 'Primary Internship',
+    id: 'exp-sydon',
+    title: 'Incoming AI Engineer Intern',
+    organization: 'Sydon AI',
+    period: 'Starts 28 Oct 2026 · 6 months',
+    role: 'Incoming',
+    status: 'incoming',
     featured: true,
-    logo: '/media/logos/nimblize.svg',
+    logo: '/media/logos/sydon.svg',
+    image: '/media/sydon/og.png',
     description:
-      'Building AI product-intelligence workflows with FastAPI, LangGraph, PostgreSQL, Redis, and Gemini. Designed RAG pipelines with semantic retrieval and vector embeddings, plus backend APIs for multi-agent orchestration, prompt evaluation, telemetry, and automation.',
+      'Working on AI systems that connect retrieval with business data to generate grounded, evidence-backed answers. Focus areas include retrieval pipelines, document processing, source attribution, and evaluating answer reliability.',
     achievement:
-      'Primary professional role. Internship product work on competitor intelligence and recommendation — not a side demo. LinkedIn: linkedin.com/in/ruthvikgoud16',
+      'Offer accepted. This describes the work ahead — not completed deliverables. Onboarding is not marked complete.',
     iconType: 'work',
-    tags: ['LangGraph', 'RAG', 'PostgreSQL', 'Redis', 'FastAPI', 'Gemini']
+    tags: ['Retrieval', 'Document processing', 'Source attribution', 'Evaluation']
   },
   {
     id: 'exp-bluestock',
     title: 'Data Analyst Intern',
     organization: 'Bluestock Fintech',
-    period: '2026 – Present',
-    role: 'Analytics & Reporting',
+    period: '2026 · Completed',
+    role: 'Completed',
+    status: 'completed',
     logo: '/media/logos/bluestock.png',
     description:
-      'Analyzing business and financial datasets for actionable insights. Cleaning, transforming, and validating structured data; building SQL reports and dashboards; improving reporting accuracy through systematic validation.',
-    achievement: 'Delivered validated reports and dashboards on live business data.',
+      'Worked on a Mutual Fund Analytics Platform focused on data processing, financial analytics, and business intelligence — SQL, data cleaning, and dashboards.',
+    achievement:
+      'Completed internship. Exact start and end months are not in the résumé, so they are not shown.',
     iconType: 'work',
-    tags: ['SQL', 'Data Validation', 'Dashboards', 'Analytics']
+    tags: ['SQL', 'Data cleaning', 'Dashboards', 'Analytics'],
+    projectUrl: 'https://financial-intelligence.streamlit.app/'
+  },
+  {
+    id: 'exp-nimblize',
+    title: 'AI & Automation Intern',
+    organization: 'Nimblize',
+    period: 'May 2026 · Completed',
+    role: 'Completed',
+    status: 'completed',
+    logo: '/media/logos/nimblize.svg',
+    description:
+      'Worked on AI-powered competitor intelligence and recommendation workflows, exploring multi-agent orchestration, retrieval-augmented generation, structured data validation, evaluation, and automation.',
+    achievement:
+      'Completed internship. End month is not on the résumé, so only the known start is shown.',
+    iconType: 'work',
+    tags: ['Python', 'FastAPI', 'LangGraph', 'RAG', 'PostgreSQL', 'Redis'],
+    projectUrl: 'https://github.com/ruthvikgoud16/nimblize'
   },
   {
     id: 'exp-oneplus',
@@ -317,8 +337,8 @@ export const EXPERIENCES_DATA: Experience[] = [
     role: 'Undergraduate ECE Student',
     logo: '/media/logos/anurag.svg',
     description:
-      'First-year ECE: electronics fundamentals, problem solving, engineering mathematics, programming, and digital basics — paired with production AI and internships.',
-    achievement: 'First-year ECE. Hardware-software path in parallel with Nimblize and Bluestock Fintech.',
+      'First-year ECE: electronics fundamentals, problem solving, engineering mathematics, programming, and digital basics, alongside internship work.',
+    achievement: 'First-year ECE, alongside internship work in AI systems and analytics.',
     iconType: 'education',
     tags: ['ECE', 'Anurag University', 'Embedded', 'Programming']
   }

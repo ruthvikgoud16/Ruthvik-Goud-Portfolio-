@@ -11,7 +11,8 @@ export default function OrgLogo({ src, alt, className = '' }: OrgLogoProps) {
     src.includes('gdg.svg') ||
     src.includes('aic-raise') ||
     src.includes('react-hyderabad') ||
-    src.includes('stackflow.png');
+    src.includes('stackflow.png') ||
+    src.includes('sydon');
   return (
     <span className={`inline-flex shrink-0 items-center justify-center overflow-hidden rounded-md bg-white ${className}`}>
       <img

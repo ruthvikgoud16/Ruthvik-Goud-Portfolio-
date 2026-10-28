@@ -95,9 +95,9 @@ def build():
     pdf.multi_cell(
         0,
         3.85,
-        "ECE undergraduate and AI Engineering Intern building production AI systems, backend APIs, and full-stack apps. "
-        "Hands-on with LangGraph multi-agent workflows, RAG/semantic search, FastAPI, PostgreSQL, Redis, and React. "
-        "Solid foundation in DSA, OOP, REST APIs, SQL, and embedded C++. Seeking software engineering and applied AI internships.",
+        "ECE undergraduate and AI engineer focused on agentic systems, retrieval, and automation. "
+        "Incoming AI Engineer Intern at Sydon AI (starts 28 Oct 2026). "
+        "Previously an AI and Automation Intern at Nimblize and a Data Analyst Intern at Bluestock Fintech.",
     )
 
     pdf.section("Education")
@@ -108,16 +108,18 @@ def build():
     )
 
     pdf.section("Experience")
-    pdf.role_header("AI Engineering Intern | Nimblize", "May 2026 - Present")
-    pdf.italic_line("Product intelligence, multi-agent AI, backend systems")
-    pdf.bullet("Built AI product-intelligence workflows with FastAPI, LangGraph, PostgreSQL, Redis, and Gemini.")
-    pdf.bullet("Developed RAG pipelines (semantic retrieval, vector embeddings) and APIs for multi-agent orchestration.")
-    pdf.bullet("Implemented prompt orchestration, evaluation pipelines, telemetry, and Git-based backend automation.")
+    pdf.role_header("Incoming AI Engineer Intern | Sydon AI", "Starts 28 Oct 2026")
+    pdf.italic_line("Retrieval, document processing, source attribution. Role not yet started.")
+    pdf.bullet("Six-month internship focused on connecting retrieval with business data for grounded answers.")
+    pdf.bullet("Planned work only. No completed deliverables are listed.")
 
-    pdf.role_header("Data Analyst Intern | Bluestock Fintech", "2026 - Present")
-    pdf.italic_line("Business and financial analytics")
-    pdf.bullet("Analyzed business and financial datasets to produce actionable insights for reporting stakeholders.")
-    pdf.bullet("Cleaned and validated structured data; built SQL reports and dashboards; improved reporting accuracy.")
+    pdf.role_header("Data Analyst Intern | Bluestock Fintech", "2026")
+    pdf.italic_line("Mutual fund analytics. Completed. Exact months not on file.")
+    pdf.bullet("Worked on data processing, SQL, cleaning, and dashboards for financial analytics.")
+
+    pdf.role_header("AI and Automation Intern | Nimblize", "May 2026")
+    pdf.italic_line("Competitor intelligence and recommendations. Completed. End month not on file.")
+    pdf.bullet("Explored multi-agent orchestration, RAG, FastAPI, PostgreSQL, and Redis on internship workflows.")
 
     pdf.section("Projects")
     pdf.role_header("Pramana | Evidence-Gated Enterprise Knowledge System", "")
